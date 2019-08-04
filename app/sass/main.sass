@@ -62,7 +62,8 @@ h3
 	display: flex
 	align-items: center
 	justify-content: center
-	// border: 1px solid $primary
+	border: 0
+	background: transparent
 	text-transform: uppercase
 	color: #feffff
 	padding: 0 20px
@@ -455,6 +456,18 @@ header
 		+media-breakpoint-down(sm)
 			margin-top: 10px
 
+.agent-co-page
+	display: flex
+	flex-direction: column
+	.list-cards
+		margin-bottom: 40px
+		li
+			border: 1px solid #e1e9ee
+			&:hover
+				box-shadow: 0px 8px 21px 0px rgba(44, 44, 44, 0.1)
+				// border: 0
+				border-color: transparent
+
 .list-cards
 	display: grid
 	grid-template-columns: 1fr 1fr
@@ -464,7 +477,7 @@ header
 	li
 		position: relative
 		perspective: 1000px
-		// transition: .5s
+		transition: .5s
 		cursor: pointer
 		// overflow: hidden
 		&.active
@@ -854,6 +867,8 @@ aside
 		padding-right: 45px
 		margin: 0
 		
+.text-center
+	text-align: center
 
 .column-map
 	display: flex
@@ -861,6 +876,66 @@ aside
 	margin: auto
 	margin-top: 30px
 	position: relative
+
+.calendar
+	background: #fff
+	box-shadow: 0px 5px 21px 0px rgba(44, 44, 44, 0.07)
+	position: relative
+	th
+		font-weight: 600
+		color: $h2
+	.wrap-head
+		display: flex
+		align-items: center
+		padding: 10px
+		border-bottom: 1px solid #e1e9ee
+	.wrap-body
+		padding: 10px 5px
+	.prev, .next
+		border: 0
+		background: url(../img/svg/up-arrow.svg)
+		filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
+		height: 15px
+		width: 15px
+		padding: 0
+		&:focus
+			outline: 0
+	.prev
+		transform: rotateZ(-90deg)
+	.next
+		transform: rotateZ(90deg)
+	table
+		width: 100%
+		text-align: center
+  
+.page-404
+	height: calc(100vh - 414px)
+	position: relative
+	min-height: 620px
+	padding: 40px 0
+	+media-breakpoint-down(xs)
+		min-height: 350px
+	&:before
+		content: ''
+		width: 100%
+		height: 100%
+		position: absolute
+		left: 0
+		top: 0
+		background: url(../img/svg/city_front.svg) no-repeat bottom/110%,url(../img/svg/city_back.svg) no-repeat bottom/110%
+		filter: sepia() hue-rotate(181deg) saturate(101%) brightness(95%)
+		z-index: -1
+		+media-breakpoint-down(md)
+			background-size: 150%, 150%
+		+media-breakpoint-down(sm)
+			background-size: 200%, 200%
+	strong
+		font-size: 200px
+		font-weight: 600
+		color: $second
+		line-height: 1
+		+media-breakpoint-down(xs)
+			font-size: 100px
 
 #map
 	height: calc(100vh - 400px)
