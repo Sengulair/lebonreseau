@@ -456,6 +456,18 @@ header
 		+media-breakpoint-down(sm)
 			margin-top: 10px
 
+.agent-co-page
+	display: flex
+	flex-direction: column
+	.list-cards
+		margin-bottom: 40px
+		li
+			border: 1px solid #e1e9ee
+			&:hover
+				box-shadow: 0px 8px 21px 0px rgba(44, 44, 44, 0.1)
+				// border: 0
+				border-color: transparent
+
 .list-cards
 	display: grid
 	grid-template-columns: 1fr 1fr
@@ -465,7 +477,7 @@ header
 	li
 		position: relative
 		perspective: 1000px
-		// transition: .5s
+		transition: .5s
 		cursor: pointer
 		// overflow: hidden
 		&.active
