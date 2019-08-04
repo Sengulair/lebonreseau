@@ -188,31 +188,33 @@ document.addEventListener("DOMContentLoaded", function () {
 		m.selected = true;
 		document.querySelector('#' + id + ' option[value=\'' + new Date().getMonth() + '\']').style.color = 'rgb(220, 0, 0)'; // в выпадающем списке выделен текущий месяц
 	}
-	Calendar3("calendar", new Date().getFullYear(), new Date().getMonth());
-	document.querySelector('#calendar').onchange = () => {
-		Calendar3("calendar", document.querySelector('#calendar input').value, parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
-	}
-	Calendar3("calendar", new Date().getFullYear(),new Date().getMonth());
-	document.querySelector('#calendar .prev').onclick = () => {
-		const prevYear = document.querySelector('#calendar input').value,
-					prevMonth = parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value);
-		if (prevMonth != 0) {
-			document.querySelector('#calendar select').selectedIndex = prevMonth - 1;
-		} else {
-			document.querySelector('#calendar select').selectedIndex = 11;
-			document.querySelector('#calendar input').value = +prevYear - 1;
+	if (document.querySelector('#calendar')) {
+		Calendar3("calendar", new Date().getFullYear(), new Date().getMonth());
+		document.querySelector('#calendar').onchange = () => {
+			Calendar3("calendar", document.querySelector('#calendar input').value, parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
 		}
-		Calendar3("calendar", document.querySelector('#calendar input').value, parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
-	}
-	document.querySelector('#calendar .next').onclick = () => {
-		const prevYear = document.querySelector('#calendar input').value,
-					prevMonth = parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value);
-		if (prevMonth != 11) {
-			document.querySelector('#calendar select').selectedIndex = prevMonth + 1;
-		} else {
-			document.querySelector('#calendar select').selectedIndex = 0;
-			document.querySelector('#calendar input').value = +prevYear + 1;
+		Calendar3("calendar", new Date().getFullYear(),new Date().getMonth());
+		document.querySelector('#calendar .prev').onclick = () => {
+			const prevYear = document.querySelector('#calendar input').value,
+						prevMonth = parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value);
+			if (prevMonth != 0) {
+				document.querySelector('#calendar select').selectedIndex = prevMonth - 1;
+			} else {
+				document.querySelector('#calendar select').selectedIndex = 11;
+				document.querySelector('#calendar input').value = +prevYear - 1;
+			}
+			Calendar3("calendar", document.querySelector('#calendar input').value, parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
 		}
-		Calendar3("calendar", document.querySelector('#calendar input').value, parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
+		document.querySelector('#calendar .next').onclick = () => {
+			const prevYear = document.querySelector('#calendar input').value,
+						prevMonth = parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value);
+			if (prevMonth != 11) {
+				document.querySelector('#calendar select').selectedIndex = prevMonth + 1;
+			} else {
+				document.querySelector('#calendar select').selectedIndex = 0;
+				document.querySelector('#calendar input').value = +prevYear + 1;
+			}
+			Calendar3("calendar", document.querySelector('#calendar input').value, parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
+		}
 	}
 });
