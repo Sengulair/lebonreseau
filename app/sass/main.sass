@@ -2,6 +2,32 @@
 @import fonts
 @import libs
 
+html
+	scroll-behavior: smooth
+
+@keyframes fadeInUp
+	from
+		opacity: 0
+		transform: translate3d(0, 45px, 0)
+	to
+		opacity: 1
+		transform: translate3d(0, 0, 0)
+
+.fadeInUp
+	animation-name: fadeInUp
+.animated
+	animation-duration: 1s
+	animation-fill-mode: both
+	&.delay-1s
+		animation-delay: 1s
+	&.delay-2s
+		animation-delay: 2s
+@media (print), (prefers-reduced-motion: reduce)
+  .animated
+    animation-duration: 1ms !important
+    transition-duration: 1ms !important
+    animation-iteration-count: 1 !important
+
 ::placeholder
 	color: #666
 
@@ -110,7 +136,7 @@ a
 		text-decoration: none
 		color: inherit
 
-.lazy-FID
+.lazy-FIU
 	&.animated
 		pointer-events: none
 +media-breakpoint-down(md)
@@ -377,7 +403,89 @@ header
 	// transform: translateY(-50%)
 	+media-breakpoint-down(md)
 		display: flex
-		
+.search-line
+	display: flex
+	position: relative
+	height: 55px
+	margin-bottom: 30px
+	[type="submit"]
+		position: absolute
+		width: 55px
+		height: 100%
+		padding: 0
+		right: 0
+		top: 50%
+		border: 0
+		transform: translateY(-50%)
+		background: url(../img/svg/magnifying-glass.svg) no-repeat center/40%
+		filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
+		&:focus
+			outline: 0
+	.search-form
+		flex: 1
+		display: flex
+		position: relative
+	.options-list
+		display: none
+		box-shadow: 0px 10px 37.24px 0.76px rgba(44, 44, 44, 0.08)
+		background: #fff
+		position: relative
+		z-index: 10
+		width: calc(100% + 1px)
+		li
+			padding: 12px 16px 6px
+			line-height: 1
+			cursor: pointer
+			&:last-child
+				padding-bottom: 12px
+	input
+		width: 100%
+		border: 1px solid #e1e9ee
+		color: #000
+		padding-left: 18px
+		padding-right: 55px
+	select
+		display: none
+	.select-wrapper
+		border: 1px solid #e1e9ee
+		margin-left: 30px
+	.select-box
+		display: flex
+		align-items: center
+		padding: 5px 50px 5px 15px
+		position: relative
+		height: 100%
+		cursor: pointer
+		&:hover
+			&:after
+				filter: invert(49%) sepia(32%) saturate(0%) hue-rotate(207deg) brightness(91%) contrast(88%)
+		&.active
+			border-bottom: 5px solid $second
+			padding-top: 10px
+			&:after
+				top: calc(50% + 2.5px)
+				transform: translateY(-55%) rotateZ(0)
+			+ .options-list
+				display: block
+		&:after
+			content: ''
+			position: absolute
+			top: 50%
+			right: 15px
+			height: 100%
+			width: 16px
+			background: url(../img/svg/up-arrow.svg) no-repeat center/100%
+			transform: translateY(-50%) rotateZ(180deg)
+			filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
+
+.animated
+	animation-duration: 1.8s
+	animation-timing-function: cubic-bezier(0.23, 1, 0.38, 1)
+@keyframes grow
+	from
+		height: 0%
+	to
+		height: 60%
 
 .second-screen, .third-screen, .fourth-screen
 	padding: 95px 0
@@ -406,6 +514,9 @@ header
 		transition: .5s
 		+media-breakpoint-down(sm)
 			flex-direction: column
+		&.animated
+			.line
+				animation: grow 1.8s ease
 		&:hover
 			box-shadow: 0px 10px 37.24px 0.76px rgba(44, 44, 44, 0.08)
 			border-color: transparent
