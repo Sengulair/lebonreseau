@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.querySelector('.main-nav').classList.toggle('opened');
 		document.querySelector('.logo-wrap').classList.toggle('center');
 	})
+	if (document.querySelector('.search-line .select-box')) {
+		document.querySelector('.search-line .select-box').addEventListener('click', function () {
+			this.classList.toggle('active');
+		})
+	}
 	if (document.querySelector('.to-top')) {
 		if (window.scrollY) {
 			if (window.scrollY > 100) document.querySelector('.to-top').style.display = 'block';
@@ -97,65 +102,29 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	})
 
-	let lazyFID = [].slice.call(document.querySelectorAll('.lazy-FID')),
-			lazyRIDL = [].slice.call(document.querySelectorAll('.lazy-RIDL')),
-			lazyRIDR = [].slice.call(document.querySelectorAll('.lazy-RIDR')),
-			lazyBIN = [].slice.call(document.querySelectorAll('.lazy-BIN'));
+	let lazyFIU = [].slice.call(document.querySelectorAll('.lazy-FIU'));
 
-			function animateCSS(node, animationName) {
-				node.classList.add('animated', animationName)
-		
-				function handleAnimationEnd() {
-						node.classList.remove('animated', animationName)
-						node.removeEventListener('animationend', handleAnimationEnd)
-				}
-		
-				node.addEventListener('animationend', handleAnimationEnd)
+	function animateCSS(node, animationName) {
+		node.classList.add('animated', animationName)
+
+		function handleAnimationEnd() {
+			node.classList.remove('animated', animationName)
+			node.removeEventListener('animationend', handleAnimationEnd)
 		}
+
+		node.addEventListener('animationend', handleAnimationEnd)
+	}
 	if ('IntersectionObserver' in window) {
-		let lazyFIDObserver = new IntersectionObserver(function(entries, observer) {
-			entries.forEach(function(entry) {
+		let lazyFIUObserver = new IntersectionObserver(function (entries, observer) {
+			entries.forEach(function (entry) {
 				if (entry.isIntersecting) {
-					animateCSS(entry.target, 'fadeInDown')
-					lazyFIDObserver.unobserve(entry.target);
+					animateCSS(entry.target, 'fadeInUp')
+					lazyFIUObserver.unobserve(entry.target);
 				}
 			});
 		});
-		lazyFID.forEach(function(lazyAnimationItem) {
-			lazyFIDObserver.observe(lazyAnimationItem);
-		});
-		let lazyRIDLObserver = new IntersectionObserver(function(entries, observer) {
-			entries.forEach(function(entry) {
-				if (entry.isIntersecting) {
-					animateCSS(entry.target, 'rotateInDownLeft')
-					lazyRIDLObserver.unobserve(entry.target);
-				}
-			});
-		});
-		lazyRIDL.forEach(function(lazyAnimationItem) {
-			lazyRIDLObserver.observe(lazyAnimationItem);
-		});
-		let lazyRIDRObserver = new IntersectionObserver(function(entries, observer) {
-			entries.forEach(function(entry) {
-				if (entry.isIntersecting) {
-					animateCSS(entry.target, 'rotateInDownRight')
-					lazyRIDRObserver.unobserve(entry.target);
-				}
-			});
-		});
-		lazyRIDR.forEach(function(lazyAnimationItem) {
-			lazyRIDRObserver.observe(lazyAnimationItem);
-		});
-		let lazyBINObserver = new IntersectionObserver(function(entries, observer) {
-			entries.forEach(function(entry) {
-				if (entry.isIntersecting) {
-					animateCSS(entry.target, 'bounceIn')
-					lazyBINObserver.unobserve(entry.target);
-				}
-			});
-		});
-		lazyBIN.forEach(function(lazyAnimationItem) {
-			lazyBINObserver.observe(lazyAnimationItem);
+		lazyFIU.forEach(function (lazyAnimationItem) {
+			lazyFIUObserver.observe(lazyAnimationItem);
 		});
 	}
 
@@ -193,10 +162,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.querySelector('#calendar').onchange = () => {
 			Calendar3("calendar", document.querySelector('#calendar input').value, parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
 		}
-		Calendar3("calendar", new Date().getFullYear(),new Date().getMonth());
+		Calendar3("calendar", new Date().getFullYear(), new Date().getMonth());
 		document.querySelector('#calendar .prev').onclick = () => {
 			const prevYear = document.querySelector('#calendar input').value,
-						prevMonth = parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value);
+				prevMonth = parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value);
 			if (prevMonth != 0) {
 				document.querySelector('#calendar select').selectedIndex = prevMonth - 1;
 			} else {
@@ -207,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 		document.querySelector('#calendar .next').onclick = () => {
 			const prevYear = document.querySelector('#calendar input').value,
-						prevMonth = parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value);
+				prevMonth = parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value);
 			if (prevMonth != 11) {
 				document.querySelector('#calendar select').selectedIndex = prevMonth + 1;
 			} else {
