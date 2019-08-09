@@ -3,25 +3,29 @@
 @import libs
 
 html
-	scroll-behavior: smooth
+  scroll-behavior: smooth
 
 @keyframes fadeInUp
-	from
-		opacity: 0
-		transform: translate3d(0, 45px, 0)
-	to
-		opacity: 1
-		transform: translate3d(0, 0, 0)
+  from
+    opacity: 0
+    transform: translate3d(0, 45px, 0)
+  to
+    opacity: 1
+    transform: translate3d(0, 0, 0)
 
 .fadeInUp
-	animation-name: fadeInUp
+  animation-name: fadeInUp
+
 .animated
-	animation-duration: 1s
-	animation-fill-mode: both
-	&.delay-1s
-		animation-delay: 1s
-	&.delay-2s
-		animation-delay: 2s
+  animation-duration: 1s
+  animation-fill-mode: both
+
+  &.delay-1s
+    animation-delay: 1s
+
+  &.delay-2s
+    animation-delay: 2s
+
 @media (print), (prefers-reduced-motion: reduce)
   .animated
     animation-duration: 1ms !important
@@ -29,1396 +33,1741 @@ html
     animation-iteration-count: 1 !important
 
 ::placeholder
-	color: #666
+  color: #666
 
 ::selection
-	background-color: $primary
-	color: #fff
+  background-color: $primary
+  color: #fff
 
 input, textarea
-	outline: none
-	&:focus:required:invalid
-		border-color: red
-	&:required:valid
-		border-color: green
+  outline: none
+
+  &:focus:required:invalid
+    border-color: red
+
+  &:required:valid
+    border-color: green
 
 img
-	max-width: 100%
-	object-fit: cover
+  max-width: 100%
+  object-fit: cover
 
 ul, li
-	list-style-type: none
-	padding: 0
-	margin: 0
+  list-style-type: none
+  padding: 0
+  margin: 0
 
 h2
-	font-size: 36px
-	color: $h2
-	font-weight: 600
-	width: 100%
-	position: relative
-	padding-top: 20px
-	+media-breakpoint-down(xs)
-		font-size: 24px
-	&.center
-		text-align: center
-		&:before
-			left: 50%
-			transform: translateX(-50%)
-	&:before
-		content: ''
-		position: absolute
-		display: block
-		top: 0
-		left: 0
-		width: 67px
-		height: 2px
-		background: $second
+  font-size: 36px
+  color: $h2
+  font-weight: 600
+  width: 100%
+  position: relative
+  padding-top: 20px
+  +media-breakpoint-down(xs)
+    font-size: 24px
+
+  &.center
+    text-align: center
+
+    &:before
+      left: 50%
+      transform: translateX(-50%)
+
+  &:before
+    content: ''
+    position: absolute
+    display: block
+    top: 0
+    left: 0
+    width: 67px
+    height: 2px
+    background: $second
+
 h3
-	font-weight: 600
-	font-size: 24px
-	color: $h2
-	+media-breakpoint-down(xs)
-		font-size: 18px
+  font-weight: 600
+  font-size: 24px
+  color: $h2
+  +media-breakpoint-down(xs)
+    font-size: 18px
 
 .button
-	font-weight: 600
-	min-width: 230px
-	height: 55px
-	display: flex
-	align-items: center
-	justify-content: center
-	border: 0
-	background: transparent
-	text-transform: uppercase
-	color: #feffff
-	padding: 0 20px
-	transition: all 0.5s
-	position: relative
-	margin: auto
-	span
-		position: relative
-		z-index: 1
-	&:before
-		content: ''
-		position: absolute
-		top: 0
-		left: 0
-		width: 100%
-		height: 100%
-		z-index: 1
-		background: $primary
-		transition: .5s
-	&:after
-		content: ''
-		position: absolute
-		top: 0
-		left: 0
-		width: 100%
-		height: 100%
-		z-index: 1
-		opacity: 0
-		transition: .5s
-		border: 1px solid #e6e6e6
-		transform: scale(1.2,1.2)
-	&:hover
-		color: $primary
-		&:before
-			opacity: 0
-			transform: scale(0.5,0.5)
-		&:after
-			opacity: 1
-			transform: scale(1,1)
+  font-weight: 600
+  min-width: 230px
+  height: 55px
+  display: flex
+  align-items: center
+  justify-content: center
+  border: 0
+  background: transparent
+  text-transform: uppercase
+  color: #feffff
+  padding: 0 20px
+  transition: all 0.5s
+  position: relative
+  margin: auto
+
+  span
+    position: relative
+    z-index: 1
+
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    background: $primary
+    transition: .5s
+
+  &:after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    opacity: 0
+    transition: .5s
+    border: 1px solid #e6e6e6
+    transform: scale(1.2, 1.2)
+
+  &:hover
+    color: $primary
+
+    &:before
+      opacity: 0
+      transform: scale(0.5, 0.5)
+
+    &:after
+      opacity: 1
+      transform: scale(1, 1)
 
 a
-	color: inherit
-	&:hover
-		text-decoration: none
-		color: inherit
+  color: inherit
+
+  &:hover
+    text-decoration: none
+    color: inherit
 
 .lazy-FIU
-	&.animated
-		pointer-events: none
+  &.animated
+    pointer-events: none
+
 +media-breakpoint-down(md)
-	[class*=delay]
-		animation-delay: 0s !important
+  [class*=delay]
+    animation-delay: 0s !important
 
 body
-	font-size: 16px
-	min-width: 320px
-	position: relative
-	line-height: 1.65
-	font-family: 'Montserrat', sans-serif
-	overflow-x: hidden
-	color: $text
-	+media-breakpoint-down(xs)
-		font-size: 14px
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.65
+  font-family: 'Montserrat', sans-serif
+  overflow-x: hidden
+  color: $text
+  +media-breakpoint-down(xs)
+    font-size: 14px
 
 .to-top
-	width: 45px
-	height: 45px
-	border: 1px solid #e6e6e6
-	background: 0
-	position: relative
-	margin: -40px 0 20px
-	margin-left: auto
-	position: fixed
-	display: none
-	bottom: 10px
-	right: 10px
-	z-index: 1001
-	background: #fff
-	&:hover
-		background: $primary
-		border-color: $primary
-		&:before
-			filter: invert(1)
-	&:before
-		content: ''
-		position: absolute
-		top: 0
-		left: 0
-		right: 0
-		bottom: 0
-		background: url(../img/svg/up-arrow.svg) no-repeat 50%/40%
-		filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
-			
+  width: 45px
+  height: 45px
+  border: 1px solid #e6e6e6
+  background: 0
+  position: relative
+  margin: -40px 0 20px
+  margin-left: auto
+  position: fixed
+  display: none
+  bottom: 10px
+  right: 10px
+  z-index: 1001
+  background: #fff
+
+  &:hover
+    background: $primary
+    border-color: $primary
+
+    &:before
+      filter: invert(1)
+
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: url(../img/svg/up-arrow.svg) no-repeat 50%/40%
+    filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
+
 header
-	background: $primary
-	height: 100px
-	display: flex
-	align-items: center
-	+media-breakpoint-down(md)
-		height: 80px
+  background: $primary
+  height: 100px
+  display: flex
+  align-items: center
+  +media-breakpoint-down(md)
+    height: 80px
 
 .top-line
-	display: flex
-	width: 100%
+  display: flex
+  width: 100%
+
 .logo-wrap
-	width: 305px
-	margin-right: auto
-	+media-breakpoint-down(md)
-		width: 283px
-		&.center
-			margin-left: calc(50% - 141px)
-	+media-breakpoint-down(xs)
-		width: 180px
-		&.center
-			margin-left: 0
+  width: 305px
+  margin-right: auto
+  +media-breakpoint-down(md)
+    width: 283px
+    &.center
+      margin-left: calc(50% - 141px)
+  +media-breakpoint-down(xs)
+    width: 180px
+    &.center
+      margin-left: 0
+
 .main-nav
-	display: flex
-	align-items: center
-	color: #fff
-	text-transform: uppercase
-	+media-breakpoint-down(md)
-		display: none
-		&.opened
-			display: flex
-			position: absolute
-			background: $primary
-			width: 100vw
-			left: 0
-			top: 80px
-			height: calc(100vh - 80px)
-			z-index: 1000
-			align-items: flex-start
-			ul
-				width: 100%
-				height: 100%
-				flex-direction: column
-				align-items: center
-				padding: 40px 0
-				justify-content: space-evenly
-				li:last-child
-					padding-right: 10px
-	&.hovered
-		a
-			color: $footerText
-	ul
-		display: flex
-		li
-			padding: 0 17px
-			&:last-child
-				padding-right: 0
-			+media-breakpoint-down(lg)
-				padding: 0 10px
-			a
-				position: relative
-				transition: .5s
-				span
-					z-index: 1
-					position: relative
-				&:after
-					content: ''
-					position: absolute
-					bottom: -1px
-					left: 0
-					width: 0
-					height: 7px
-					background: $second
-					transition: .5s
-				&:hover
-					color: #fff
-			&.active a:after, a:hover:after
-				width: 100%
+  display: flex
+  align-items: center
+  color: #fff
+  text-transform: uppercase
+  +media-breakpoint-down(md)
+    display: none
+    &.opened
+      display: flex
+      position: absolute
+      background: $primary
+      width: 100vw
+      left: 0
+      top: 80px
+      height: calc(100vh - 80px)
+      z-index: 1000
+      align-items: flex-start
+
+      ul
+        width: 100%
+        height: 100%
+        flex-direction: column
+        align-items: center
+        padding: 40px 0
+        justify-content: space-evenly
+
+        li:last-child
+          padding-right: 10px
+
+  &.hovered
+    a
+      color: $footerText
+
+  ul
+    display: flex
+
+    li
+      padding: 0 17px
+
+      &:last-child
+        padding-right: 0
+
+      +media-breakpoint-down(lg)
+        padding: 0 10px
+
+      a
+        position: relative
+        transition: .5s
+
+        span
+          z-index: 1
+          position: relative
+
+        &:after
+          content: ''
+          position: absolute
+          bottom: -1px
+          left: 0
+          width: 0
+          height: 7px
+          background: $second
+          transition: .5s
+
+        &:hover
+          color: #fff
+
+      &.active a:after, a:hover:after
+        width: 100%
 
 .container
-	+media-breakpoint-up(xl)
-		max-width: 1530px
-		.row
-			margin-left: 15px
-			margin-right: 15px
-	@media (min-width: 1200px)
-		max-width: 1530px
-		.row
-			margin-left: 15px
-			margin-right: 15px
-	@media (min-width: 1560px)
-		.row
-			margin-left: auto
-			margin-right: auto
-	+media-breakpoint-down(xs)
-		.row
-			margin-left: 0
-			margin-right: 0
+  +media-breakpoint-up(xl)
+    max-width: 1530px
+    .row
+      margin-left: 15px
+      margin-right: 15px
+  @media (min-width: 1200px)
+    max-width: 1530px
+    .row
+      margin-left: 15px
+      margin-right: 15px
+  @media (min-width: 1560px)
+    .row
+      margin-left: auto
+      margin-right: auto
+  +media-breakpoint-down(xs)
+    .row
+      margin-left: 0
+      margin-right: 0
+
 .first-screen
-	.col
-		transition: .5s
-		padding: 0.1px
-	+media-breakpoint-down(md)
-		.banner-wrap
-			order: -2
-			+ .col
-				+ .col	
-					order: -1
-					min-width: 100%
-					height: 300px
-	+media-breakpoint-down(xs)
-		.banner-wrap
-			+ .col
-				+ .col	
-					max-height: 210px
-	.introduction
-		margin-top: 50px
-		width: 435px
-		max-width: 100%
-		+media-breakpoint-down(md)
-			position: absolute
-			left: 50%
-			top: 0px
-			transform: translateX(-50%)
-			margin: 40px auto
-			h2
-				text-align: center
-				&:before
-					left: 50%
-					transform: translateX(-50%)
+  .col
+    transition: .5s
+    padding: 0.1px
+
+  +media-breakpoint-down(md)
+    .banner-wrap
+      order: -2
+
+      + .col
+        + .col
+          order: -1
+          min-width: 100%
+          height: 300px
+  +media-breakpoint-down(xs)
+    .banner-wrap
+      + .col
+        + .col
+          max-height: 210px
+
+  .introduction
+    margin-top: 50px
+    width: 435px
+    max-width: 100%
+    +media-breakpoint-down(md)
+      position: absolute
+      left: 50%
+      top: 0px
+      transform: translateX(-50%)
+      margin: 40px auto
+      h2
+        text-align: center
+
+        &:before
+          left: 50%
+          transform: translateX(-50%)
+
 .banner-wrap
-	margin-top: 30px
-	width: 100%
-	img
-		width: 100%
+  margin-top: 30px
+  width: 100%
+
+  img
+    width: 100%
 
 .hamburger
-	margin: 0
-	cursor: pointer
-	transition-timing-function: linear
-	transition-duration: 0.15s
-	transition-property: opacity, filter
-	text-transform: none
-	border: 0
-	padding: 0
-	background: 0
-	outline: 0
-	&:focus
-		outline: 0
-	// &.is-active:hover, &:hover
-	// 	opacity: 0.7
-	&.is-active .hamburger-inner
-		background-color: #fff
-		&:after, &:before
-			background-color: #fff
+  margin: 0
+  cursor: pointer
+  transition-timing-function: linear
+  transition-duration: 0.15s
+  transition-property: opacity, filter
+  text-transform: none
+  border: 0
+  padding: 0
+  background: 0
+  outline: 0
+
+  &:focus
+    outline: 0
+  // &.is-active:hover, &:hover
+  // 	opacity: 0.7
+  &.is-active .hamburger-inner
+    background-color: #fff
+
+    &:after, &:before
+      background-color: #fff
+
 .hamburger-box
-	position: relative
-	display: inline-block
-	width: 50px
-	height: 22px
+  position: relative
+  display: inline-block
+  width: 50px
+  height: 22px
+
 .hamburger-inner
-	top: 50%
-	display: block
-	margin-top: -2px
-	position: absolute
-	width: 40px
-	height: 2px
-	right: 0
-	transition-timing-function: ease
-	transition-duration: 0.15s
-	transition-property: transform
-	background-color: #fff
-	&:after, &:before
-		position: absolute
-		width: 40px
-		height: 2px
-		right: 0
-		transition-timing-function: ease
-		transition-duration: 0.15s
-		transition-property: transform
-		background-color: #fff
-	&:after
-		display: block
-		content: ""
-	&:before
-		display: block
-		content: ""
-		top: -10px
-		width: 30px
-	&:after
-		bottom: -10px
+  top: 50%
+  display: block
+  margin-top: -2px
+  position: absolute
+  width: 40px
+  height: 2px
+  right: 0
+  transition-timing-function: ease
+  transition-duration: 0.15s
+  transition-property: transform
+  background-color: #fff
+
+  &:after, &:before
+    position: absolute
+    width: 40px
+    height: 2px
+    right: 0
+    transition-timing-function: ease
+    transition-duration: 0.15s
+    transition-property: transform
+    background-color: #fff
+
+  &:after
+    display: block
+    content: ""
+
+  &:before
+    display: block
+    content: ""
+    top: -10px
+    width: 30px
+
+  &:after
+    bottom: -10px
+
 .hamburger--slider
-	.hamburger-inner
-		top: 2px
-		width: 50px
-		&:before
-			top: 10px
-			transition-timing-function: ease
-			transition-duration: 0.15s
-			transition-property: transform, opacity
-		&:after
-			top: 20px
-	&.is-active .hamburger-inner
-		transform: translate3d(0, 10px, 0) rotate(45deg)
-		width: 40px
-		&:before
-			transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0)
-			opacity: 0
-		&:after
-			transform: translate3d(0, -20px, 0) rotate(-90deg)
+  .hamburger-inner
+    top: 2px
+    width: 50px
+
+    &:before
+      top: 10px
+      transition-timing-function: ease
+      transition-duration: 0.15s
+      transition-property: transform, opacity
+
+    &:after
+      top: 20px
+
+  &.is-active .hamburger-inner
+    transform: translate3d(0, 10px, 0) rotate(45deg)
+    width: 40px
+
+    &:before
+      transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0)
+      opacity: 0
+
+    &:after
+      transform: translate3d(0, -20px, 0) rotate(-90deg)
 
 .mobile-menu
-	display: none
-	// position: absolute
-	// right: 0
-	// z-index: 10
-	// top: 50%
-	// transform: translateY(-50%)
-	+media-breakpoint-down(md)
-		display: flex
+  display: none
+  // position: absolute
+  // right: 0
+  // z-index: 10
+  // top: 50%
+  // transform: translateY(-50%)
+  +media-breakpoint-down(md)
+    display: flex
+
 .search-line
-	display: flex
-	position: relative
-	height: 55px
-	margin-bottom: 30px
-	[type="submit"]
-		position: absolute
-		width: 55px
-		height: 100%
-		padding: 0
-		right: 0
-		top: 50%
-		border: 0
-		transform: translateY(-50%)
-		background: url(../img/svg/magnifying-glass.svg) no-repeat center/40%
-		filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
-		&:focus
-			outline: 0
-	.search-form
-		flex: 1
-		display: flex
-		position: relative
-	.options-list
-		display: none
-		box-shadow: 0px 10px 37.24px 0.76px rgba(44, 44, 44, 0.08)
-		background: #fff
-		position: relative
-		z-index: 10
-		width: calc(100% + 1px)
-		li
-			padding: 12px 16px 6px
-			line-height: 1
-			cursor: pointer
-			&:last-child
-				padding-bottom: 12px
-	input
-		width: 100%
-		border: 1px solid #e1e9ee
-		color: #000
-		padding-left: 18px
-		padding-right: 55px
-	select
-		display: none
-	.select-wrapper
-		border: 1px solid #e1e9ee
-		margin-left: 30px
-	.select-box
-		display: flex
-		align-items: center
-		padding: 5px 50px 5px 15px
-		position: relative
-		height: 100%
-		cursor: pointer
-		&:hover
-			&:after
-				filter: invert(49%) sepia(32%) saturate(0%) hue-rotate(207deg) brightness(91%) contrast(88%)
-		&.active
-			border-bottom: 5px solid $second
-			padding-top: 10px
-			&:after
-				top: calc(50% + 2.5px)
-				transform: translateY(-55%) rotateZ(0)
-			+ .options-list
-				display: block
-		&:after
-			content: ''
-			position: absolute
-			top: 50%
-			right: 15px
-			height: 100%
-			width: 16px
-			background: url(../img/svg/up-arrow.svg) no-repeat center/100%
-			transform: translateY(-50%) rotateZ(180deg)
-			filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
+  display: flex
+  position: relative
+  height: 55px
+  margin-bottom: 30px
+
+  [type="submit"]
+    position: absolute
+    width: 55px
+    height: 100%
+    padding: 0
+    right: 0
+    top: 50%
+    border: 0
+    transform: translateY(-50%)
+    background: url(../img/svg/magnifying-glass.svg) no-repeat center/40%
+    filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
+
+    &:focus
+      outline: 0
+
+  .search-form
+    flex: 1
+    display: flex
+    position: relative
+
+  .options-list
+    display: none
+    box-shadow: 0px 10px 37.24px 0.76px rgba(44, 44, 44, 0.08)
+    background: #fff
+    position: relative
+    z-index: 10
+    width: calc(100% + 1px)
+
+    li
+      padding: 12px 16px 6px
+      line-height: 1
+      cursor: pointer
+
+      &:last-child
+        padding-bottom: 12px
+
+  input
+    width: 100%
+    border: 1px solid #e1e9ee
+    color: #000
+    padding-left: 18px
+    padding-right: 55px
+
+  select
+    display: none
+
+  .select-wrapper
+    border: 1px solid #e1e9ee
+    margin-left: 30px
+
+  .select-box
+    display: flex
+    align-items: center
+    padding: 5px 50px 5px 15px
+    position: relative
+    height: 100%
+    cursor: pointer
+
+    &:hover
+      &:after
+        filter: invert(49%) sepia(32%) saturate(0%) hue-rotate(207deg) brightness(91%) contrast(88%)
+
+    &.active
+      border-bottom: 5px solid $second
+      padding-top: 10px
+
+      &:after
+        top: calc(50% + 2.5px)
+        transform: translateY(-55%) rotateZ(0)
+
+      + .options-list
+        display: block
+
+    &:after
+      content: ''
+      position: absolute
+      top: 50%
+      right: 15px
+      height: 100%
+      width: 16px
+      background: url(../img/svg/up-arrow.svg) no-repeat center/100%
+      transform: translateY(-50%) rotateZ(180deg)
+      filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
 
 .animated
-	animation-duration: 1.8s
-	animation-timing-function: cubic-bezier(0.23, 1, 0.38, 1)
+  animation-duration: 1.8s
+  animation-timing-function: cubic-bezier(0.23, 1, 0.38, 1)
+
 @keyframes grow
-	from
-		height: 0%
-	to
-		height: 60%
+  from
+    height: 0%
+  to
+    height: 60%
 
 .second-screen, .third-screen, .fourth-screen
-	padding: 95px 0
-	+media-breakpoint-down(xs)
-		padding: 50px 0
+  padding: 95px 0
+  +media-breakpoint-down(xs)
+    padding: 50px 0
+
 .third-screen
-	background: $second
-	overflow: hidden
-	&.visible
-		background: $second url(../img/@2x/img_vector_3_screen.webp) no-repeat center 100% / 100%
-		+media-breakpoint-down(md)
-			background-size: 125%
-	h2
-		color: #fff
-		&:before
-			background: #fff
+  background: $second
+  overflow: hidden
+
+  &.visible
+    background: $second url(../img/@2x/img_vector_3_screen.webp) no-repeat center 100% / 100%
+    +media-breakpoint-down(md)
+      background-size: 125%
+
+  h2
+    color: #fff
+
+    &:before
+      background: #fff
+
 .news-page
-	margin-bottom: 50px
+  margin-bottom: 50px
+
 .employment-list
-	li
-		display: flex
-		min-height: 240px
-		border: 1px solid #e1e9ee
-		margin-bottom: 30px
-		position: relative
-		transition: .5s
-		+media-breakpoint-down(sm)
-			flex-direction: column
-		&.animated
-			.line
-				animation: grow 1.8s ease
-		&:hover
-			box-shadow: 0px 10px 37.24px 0.76px rgba(44, 44, 44, 0.08)
-			border-color: transparent
-			.line
-				height: 100%
-				+media-breakpoint-down(sm)
-					height: 5px
-					width: 100%
-		.wrapper-text
-			padding: 40px
-			+media-breakpoint-down(xs)
-				padding: 20px
-				text-align: center
-			p:last-child
-				margin-bottom: 0
-		.line
-			display: block
-			height: 60%
-			width: 5px
-			position: absolute
-			left: 300px
-			top: 50%
-			transform: translateY(-50%)
-			transition: .5s
-			background: $second
-			+media-breakpoint-down(sm)
-				height: 5px
-				width: 60%
-				top: 160px
-				left: 50%
-				transform: translateX(-50%)
-		.wrapper-img
-			display: flex
-			flex-direction: column
-			align-items: center
-			justify-content: center
-			align-self: center
-			position: relative
-			padding: 0px 25px
-			min-width: 300px
-			max-width: 300px
-			+media-breakpoint-down(sm)
-				height: 155px
-	.title
-		font-weight: 500
-		text-transform: uppercase
-		margin-top: 20px
-		+media-breakpoint-down(sm)
-			margin-top: 10px
+  li
+    display: flex
+    min-height: 240px
+    border: 1px solid #e1e9ee
+    margin-bottom: 30px
+    position: relative
+    transition: .5s
+    +media-breakpoint-down(sm)
+      flex-direction: column
+
+    &.animated
+      .line
+        animation: grow 1.8s ease
+
+    &:hover
+      box-shadow: 0px 10px 37.24px 0.76px rgba(44, 44, 44, 0.08)
+      border-color: transparent
+
+      .line
+        height: 100%
+        +media-breakpoint-down(sm)
+          height: 5px
+          width: 100%
+
+    .wrapper-text
+      padding: 40px
+      +media-breakpoint-down(xs)
+        padding: 20px
+        text-align: center
+
+      p:last-child
+        margin-bottom: 0
+
+    .line
+      display: block
+      height: 60%
+      width: 5px
+      position: absolute
+      left: 300px
+      top: 50%
+      transform: translateY(-50%)
+      transition: .5s
+      background: $second
+      +media-breakpoint-down(sm)
+        height: 5px
+        width: 60%
+        top: 160px
+        left: 50%
+        transform: translateX(-50%)
+
+    .wrapper-img
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      align-self: center
+      position: relative
+      padding: 0px 25px
+      min-width: 300px
+      max-width: 300px
+      +media-breakpoint-down(sm)
+        height: 155px
+
+  .title
+    font-weight: 500
+    text-transform: uppercase
+    margin-top: 20px
+    +media-breakpoint-down(sm)
+      margin-top: 10px
 
 .agent-co-page
-	display: flex
-	flex-direction: column
-	.list-cards
-		margin-bottom: 40px
-		li
-			border: 1px solid #e1e9ee
-			&:hover
-				box-shadow: 0px 8px 21px 0px rgba(44, 44, 44, 0.1)
-				// border: 0
-				border-color: transparent
+  display: flex
+  flex-direction: column
+
+  .list-cards
+    margin-bottom: 40px
+
+    li
+      border: 1px solid #e1e9ee
+
+      &:hover
+        box-shadow: 0px 8px 21px 0px rgba(44, 44, 44, 0.1)
+        // border: 0
+        border-color: transparent
 
 .list-cards
-	display: grid
-	grid-template-columns: 1fr 1fr
-	grid-gap: 30px
-	+media-breakpoint-down(md)
-		grid-template-columns: 1fr
-	li
-		position: relative
-		perspective: 1000px
-		transition: .5s
-		cursor: pointer
-		// overflow: hidden
-		&.active
-			.front
-				// transform: rotateY(180deg)
-				opacity: 0
-				z-index: -11
-			.back
-				// transform: rotateY(360deg)
-				transform: rotate(0)
-				opacity: 1
-				pointer-events: auto
-	.front, .back
-		transition: .5s
-		width: 100%
-		height: 100%
-		left: 0
-		top: 0
-		padding: 28px 30px
-		display: flex
-		flex-direction: column
-		z-index: 0
-		backface-visibility: hidden
-		+media-breakpoint-down(xs)
-			padding: 23px 25px
-		&:before
-			content: ''
-			position: absolute
-			bottom: 0
-			left: 0
-			right: 0
-			top: 0
-			z-index: -1
-			background: #fff url(../img/svg/card-bgnd.svg) no-repeat -136% 100%/80%
-			transform: scale(-1, 1)
-		a
-			margin-top: auto
-			color: $h2
-			font-weight: 500
-			position: relative
-			align-self: flex-start
-			z-index: 1
-			span
-				position: relative
-				z-index: 1
-			&:hover:after
-				bottom: 0
-			&:after
-				content: ''
-				position: absolute
-				bottom: 6px
-				left: 0
-				width: 100%
-				height: 4px
-				background: $second
-				transition: .5s
-	.front
-		position: relative
-	.back
-		position: absolute
-		color: #fff
-		z-index: -10
-		transform: rotate(20deg)
-		opacity: 0
-		pointer-events: none
-		a span, h3
-			color: #fff
-		&:before
-			background: $primary url(../img/svg/card-bgnd-active.svg) no-repeat -136% 100%/80% !important
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-gap: 30px
+  +media-breakpoint-down(md)
+    grid-template-columns: 1fr
+
+  li
+    position: relative
+    perspective: 1000px
+    transition: .5s
+    cursor: pointer
+    // overflow: hidden
+    &.active
+      .front
+        // transform: rotateY(180deg)
+        opacity: 0
+        z-index: -11
+
+      .back
+        // transform: rotateY(360deg)
+        transform: rotate(0)
+        opacity: 1
+        pointer-events: auto
+
+  .front, .back
+    transition: .5s
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    padding: 28px 30px
+    display: flex
+    flex-direction: column
+    z-index: 0
+    backface-visibility: hidden
+    +media-breakpoint-down(xs)
+      padding: 23px 25px
+
+    &:before
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      top: 0
+      z-index: -1
+      background: #fff url(../img/svg/card-bgnd.svg) no-repeat -136% 100%/80%
+      transform: scale(-1, 1)
+
+    a
+      margin-top: auto
+      color: $h2
+      font-weight: 500
+      position: relative
+      align-self: flex-start
+      z-index: 1
+
+      span
+        position: relative
+        z-index: 1
+
+      &:hover:after
+        bottom: 0
+
+      &:after
+        content: ''
+        position: absolute
+        bottom: 6px
+        left: 0
+        width: 100%
+        height: 4px
+        background: $second
+        transition: .5s
+
+  .front
+    position: relative
+
+  .back
+    position: absolute
+    color: #fff
+    z-index: -10
+    transform: rotate(20deg)
+    opacity: 0
+    pointer-events: none
+
+    a span, h3
+      color: #fff
+
+    &:before
+      background: $primary url(../img/svg/card-bgnd-active.svg) no-repeat -136% 100%/80% !important
 
 .list-news
-	display: flex
-	margin-bottom: 50px
-	+media-breakpoint-down(md)
-		flex-direction: column
-	li
-		height: 684px
-		flex: 1
-		box-shadow: 0px 17px 21px 0px rgba(44, 44, 44, 0.07)
-		overflow: hidden
-		margin: 0 2%
-		transition: 1s
-		+media-breakpoint-down(lg)
-			height: 534px
-		+media-breakpoint-down(md)
-			margin: 0
-			margin-bottom: 30px
-		.wrapper-img
-			transition: 1s
-			height: 500px
-			+media-breakpoint-down(lg)
-				height: 350px
-		.wrapper-text
-			padding: 25px 30px
-			transition: 1s
-			+media-breakpoint-down(xs)
-				padding: 15px 18px
-		.date
-			display: block
-			margin-bottom: 10px
-			+media-breakpoint-down(xs)
-				margin: 0
-		h3
-			font-size: 22px
-			line-height: 30px
-			text-overflow: ellipsis
-			overflow: hidden
-			display: -webkit-box
-			-webkit-line-clamp: 3
-			-webkit-box-orient: vertical
-			+media-breakpoint-down(xs)
-				font-size: 16px
-				line-height: 24px
-				margin: 0
-		&:first-child
-			margin-left: 0
-		&:last-child
-			margin-right: 0
-		&:hover
-			flex: 1 1 30%
-			.wrapper-text
-				height: 0
-				padding: 0
-				+media-breakpoint-down(xs)
-					padding: 15px 18px
-			.wrapper-img
-				height: 100%
-			img
-				height: 100%
-			+media-breakpoint-down(md)
-				flex: 1
-				.wrapper-text
-					height: auto
-					padding: 25px 30px
-				.wrapper-img
-					height: 350px
-		img
-			object-fit: cover
-			height: 100%
-			width: 100%
+  display: flex
+  margin-bottom: 50px
+  +media-breakpoint-down(md)
+    flex-direction: column
+
+  li
+    height: 684px
+    flex: 1
+    box-shadow: 0px 17px 21px 0px rgba(44, 44, 44, 0.07)
+    overflow: hidden
+    margin: 0 2%
+    transition: 1s
+    +media-breakpoint-down(lg)
+      height: 534px
+    +media-breakpoint-down(md)
+      margin: 0
+      margin-bottom: 30px
+
+    .wrapper-img
+      transition: 1s
+      height: 500px
+      +media-breakpoint-down(lg)
+        height: 350px
+
+    .wrapper-text
+      padding: 25px 30px
+      transition: 1s
+      +media-breakpoint-down(xs)
+        padding: 15px 18px
+
+    .date
+      display: block
+      margin-bottom: 10px
+      +media-breakpoint-down(xs)
+        margin: 0
+
+    h3
+      font-size: 22px
+      line-height: 30px
+      text-overflow: ellipsis
+      overflow: hidden
+      display: -webkit-box
+      -webkit-line-clamp: 3
+      -webkit-box-orient: vertical
+      +media-breakpoint-down(xs)
+        font-size: 16px
+        line-height: 24px
+        margin: 0
+
+    &:first-child
+      margin-left: 0
+
+    &:last-child
+      margin-right: 0
+
+    &:hover
+      flex: 1 1 30%
+
+      .wrapper-text
+        height: 0
+        padding: 0
+        +media-breakpoint-down(xs)
+          padding: 15px 18px
+
+      .wrapper-img
+        height: 100%
+
+      img
+        height: 100%
+
+      +media-breakpoint-down(md)
+        flex: 1
+        .wrapper-text
+          height: auto
+          padding: 25px 30px
+        .wrapper-img
+          height: 350px
+
+    img
+      object-fit: cover
+      height: 100%
+      width: 100%
 
 .banner-list
-	display: grid
-	margin-top: 50px
-	grid-template-columns: 1fr 1fr
-	grid-gap: 30px
-	+media-breakpoint-down(sm)
-		display: flex
-		flex-direction: column
-		li
-			margin-bottom: 20px
-	li
-		&:first-child
-			grid-column: 1/3
+  display: grid
+  margin-top: 50px
+  grid-template-columns: 1fr 1fr
+  grid-gap: 30px
+  +media-breakpoint-down(sm)
+    display: flex
+    flex-direction: column
+    li
+      margin-bottom: 20px
+
+  li
+    &:first-child
+      grid-column: 1/3
 
 .social-list
-	display: flex
-	li
-		margin-right: 15px
-		&:last-child
-			margin-right: 0
-	.button
-		min-width: 55px
-		min-height: 55px
-		width: 55px
-		padding: 0
-		+media-breakpoint-down(xs)
-			min-width: 40px
-			min-height: 40px
-			width: 40px
-			height: 40px
-		&:before
-			background: $second
-		&:after
-			border-color: $second
-		img
-			position: relative
-			z-index: 1
-			height: 50%
-			width: 50%
+  display: flex
+
+  li
+    margin-right: 15px
+
+    &:last-child
+      margin-right: 0
+
+  .button
+    min-width: 55px
+    min-height: 55px
+    width: 55px
+    padding: 0
+    +media-breakpoint-down(xs)
+      min-width: 40px
+      min-height: 40px
+      width: 40px
+      height: 40px
+
+    &:before
+      background: $second
+
+    &:after
+      border-color: $second
+
+    img
+      position: relative
+      z-index: 1
+      height: 50%
+      width: 50%
 
 .list-agencies
-	padding: 0 20px 20px 20px
-	max-height: 348px
-	overflow-y: auto
-	// &::-webkit-scrollbar-button
-	// 	display: block
-	// 	height: 10px
-	+media-breakpoint-down(md)
-		max-height: 251px
-	+media-breakpoint-down(xs)
-		max-height: 169px
-	&::-webkit-scrollbar
-		background: #f1f1f1
-	&::-webkit-scrollbar-thumb
-		background-color: $second
-	li
-		margin-bottom: 15px
-		&:last-child
-			margin-bottom: 0	
-	.wrapper-img
-		margin-right: 20px
-		border: 1px solid #e1e9ee
-		transition: .25s
-	img
-		width: 150px
-		height: 65px
-		object-fit: contain
-	a
-		display: flex
-		align-items: center
-		font-weight: 500
-		text-transform: uppercase
-		position: relative
-		&:hover
-			color: #4e4e4e
-			span:after
-				width: 100%
-			.wrapper-img
-				border-color: $second
-		span
-			z-index: 1
-			position: relative
-			&:after
-				content: ''
-				position: absolute
-				bottom: 4px
-				left: 0
-				width: 0
-				height: 7px
-				background: $second
-				transition: .5s
-				z-index: -1
+  padding: 0 20px 20px 20px
+  max-height: 348px
+  overflow-y: auto
+  // &::-webkit-scrollbar-button
+  // 	display: block
+  // 	height: 10px
+  +media-breakpoint-down(md)
+    max-height: 251px
+  +media-breakpoint-down(xs)
+    max-height: 169px
+
+  &::-webkit-scrollbar
+    background: #f1f1f1
+
+  &::-webkit-scrollbar-thumb
+    background-color: $second
+
+  li
+    margin-bottom: 15px
+
+    &:last-child
+      margin-bottom: 0
+
+  .wrapper-img
+    margin-right: 20px
+    border: 1px solid #e1e9ee
+    transition: .25s
+
+  img
+    width: 150px
+    height: 65px
+    object-fit: contain
+
+  a
+    display: flex
+    align-items: center
+    font-weight: 500
+    text-transform: uppercase
+    position: relative
+
+    &:hover
+      color: #4e4e4e
+
+      span:after
+        width: 100%
+
+      .wrapper-img
+        border-color: $second
+
+    span
+      z-index: 1
+      position: relative
+
+      &:after
+        content: ''
+        position: absolute
+        bottom: 4px
+        left: 0
+        width: 0
+        height: 7px
+        background: $second
+        transition: .5s
+        z-index: -1
 
 .list-news-page
-	p
-		overflow: hidden
-		text-overflow: ellipsis
-		display: -webkit-box
-		-webkit-line-clamp: 3
-		-webkit-box-orient: vertical
-	li
-		margin-bottom: 35px
-		display: flex
-		box-shadow: 0px 5px 21px 0px rgba(44, 44, 44, 0.07)
-		.comments
-			margin-left: 50px
-		h3
-			font-size: 22px
-			line-height: 30px
-		.wrapper-img
-			min-height: 360px
-			min-width: 50%
-			position: relative
-		.wrapper-info
-			padding: 30px
-			display: flex
-			flex-direction: column
-		.read-more
-			margin-top: auto
-			position: relative
-			transition: .5s
-			align-self: flex-start
-			color: $h2
-			font-weight: 500
-			span
-				z-index: 1
-				position: relative
-			&:after
-				content: ''
-				position: absolute
-				bottom: 3px
-				left: 0
-				width: 100%
-				height: 7px
-				background: $second
-				transition: .5s
-			&:hover:after
-				bottom: -3px
-		img
-			width: 100%
-			height: 100%
-			position: absolute
-			top: 0
-			left: 0
+  p
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-line-clamp: 3
+    -webkit-box-orient: vertical
+
+  li
+    margin-bottom: 35px
+    display: flex
+    box-shadow: 0px 5px 21px 0px rgba(44, 44, 44, 0.07)
+
+    .comments
+      margin-left: 50px
+
+    h3
+      font-size: 22px
+      line-height: 30px
+
+    .wrapper-img
+      min-height: 360px
+      min-width: 50%
+      position: relative
+
+    .wrapper-info
+      padding: 30px
+      display: flex
+      flex-direction: column
+
+    .read-more
+      margin-top: auto
+      position: relative
+      transition: .5s
+      align-self: flex-start
+      color: $h2
+      font-weight: 500
+
+      span
+        z-index: 1
+        position: relative
+
+      &:after
+        content: ''
+        position: absolute
+        bottom: 3px
+        left: 0
+        width: 100%
+        height: 7px
+        background: $second
+        transition: .5s
+
+      &:hover:after
+        bottom: -3px
+
+    img
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
 
 .breadcrumbs
-	display: flex
-	margin: 20px 0
-	margin-left: auto
-	li
-		font-weight: 600
-		color: $h2
-		&:after
-			content: '/'
-			color: $second
-			margin: 0 5px
-		&:last-child
-			&:after
-				content: none
-	a
-		color: $text
-		font-weight: 400
+  display: flex
+  margin: 20px 0
+  margin-left: auto
+
+  li
+    font-weight: 600
+    color: $h2
+
+    &:after
+      content: '/'
+      color: $second
+      margin: 0 5px
+
+    &:last-child
+      &:after
+        content: none
+
+  a
+    color: $text
+    font-weight: 400
 
 .pagination
-	display: flex
-	justify-content: center
-	li
-		transition: .25s
-		color: $h2
-		a, span
-			display: flex
-			justify-content: center
-			align-items: center
-			min-width: 35px
-			min-height: 35px
-			padding: 0 5px
-		&.active
-			background: $primary
-			color: #fff
-			&:hover
-				color: #fff
-				font-weight: inherit
-		&:hover
-			font-weight: 600
-			color: $primary
-	.prev, .next
-		text-transform: uppercase
-		font-weight: 500
-		display: flex
-		align-items: center
-	.prev
-		margin-right: auto
-		&:before
-			content: ''
-			height: 20px
-			width: 30px
-			background: url(../img/svg/back.svg) no-repeat
-	.next
-		margin-left: auto
-		&:after
-			content: ''
-			height: 20px
-			width: 30px
-			background: url(../img/svg/next.svg) no-repeat right
+  display: flex
+  justify-content: center
+
+  li
+    transition: .25s
+    color: $h2
+
+    a, span
+      display: flex
+      justify-content: center
+      align-items: center
+      min-width: 35px
+      min-height: 35px
+      padding: 0 5px
+
+    &.active
+      background: $primary
+      color: #fff
+
+      &:hover
+        color: #fff
+        font-weight: inherit
+
+    &:hover
+      font-weight: 600
+      color: $primary
+
+  .prev, .next
+    text-transform: uppercase
+    font-weight: 500
+    display: flex
+    align-items: center
+
+  .prev
+    margin-right: auto
+
+    &:before
+      content: ''
+      height: 20px
+      width: 30px
+      background: url(../img/svg/back.svg) no-repeat
+
+  .next
+    margin-left: auto
+
+    &:after
+      content: ''
+      height: 20px
+      width: 30px
+      background: url(../img/svg/next.svg) no-repeat right
+
 main
-	padding-left: 0 !important
+  padding-left: 0 !important
+
 aside
-	padding-right: 0 !important
+  padding-right: 0 !important
+
 .aside-wrapper
-	padding: 30px
-	background: #f7f9fb
-	.social-list
-		img
-			// transition: .5s
-		.button
-			&:after
-				border-color: #e6e6e6
-			&:hover	img
-				filter: brightness(50%) sepia(1) hue-rotate(57deg) saturate(265%) brightness(115%)
+  padding: 30px
+  background: #f7f9fb
+
+  .social-list
+    img
+    // transition: .5s
+    .button
+      &:after
+        border-color: #e6e6e6
+
+      &:hover img
+        filter: brightness(50%) sepia(1) hue-rotate(57deg) saturate(265%) brightness(115%)
+
 .wrapper-agencies
-	display: none
-	position: absolute
-	width: 100%
-	top: 0
-	left: 0
-	opacity: 0
-	background: #fff
-	box-shadow: 0px 10px 37.24px 0.76px rgba(44, 44, 44, 0.08)
-	margin-top: 50px
-	transition: .5s
-	+media-breakpoint-down(md)
-		position: relative
-	.close
-		border: 0
-		background: 0
-		position: absolute
-		right: 20px
-		top: 30px
-		width: 20px
-		height: 20px
-		background: url(../img/svg/close.svg)
-		+media-breakpoint-down(xs)
-			top: 25px
-	h3
-		padding: 20px
-		padding-right: 45px
-		margin: 0
-		
+  display: none
+  position: absolute
+  width: 100%
+  top: 0
+  left: 0
+  opacity: 0
+  background: #fff
+  box-shadow: 0px 10px 37.24px 0.76px rgba(44, 44, 44, 0.08)
+  margin-top: 50px
+  transition: .5s
+  +media-breakpoint-down(md)
+    position: relative
+
+  .close
+    border: 0
+    background: 0
+    position: absolute
+    right: 20px
+    top: 30px
+    width: 20px
+    height: 20px
+    background: url(../img/svg/close.svg)
+    +media-breakpoint-down(xs)
+      top: 25px
+
+  h3
+    padding: 20px
+    padding-right: 45px
+    margin: 0
+
 .text-center
-	text-align: center
+  text-align: center
 
 .column-map
-	display: flex
+  display: flex
+
 .map-wrapper
-	margin: auto
-	margin-top: 30px
-	position: relative
+  margin: auto
+  margin-top: 30px
+  position: relative
 
 .calendar
-	background: #fff
-	box-shadow: 0px 5px 21px 0px rgba(44, 44, 44, 0.07)
-	position: relative
-	th
-		font-weight: 600
-		color: $h2
-	.wrap-head
-		display: flex
-		align-items: center
-		padding: 10px
-		border-bottom: 1px solid #e1e9ee
-	.wrap-body
-		padding: 10px 5px
-	.prev, .next
-		border: 0
-		background: url(../img/svg/up-arrow.svg)
-		filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
-		height: 15px
-		width: 15px
-		padding: 0
-		&:focus
-			outline: 0
-	.prev
-		transform: rotateZ(-90deg)
-	.next
-		transform: rotateZ(90deg)
-	table
-		width: 100%
-		text-align: center
-  
+  background: #fff
+  box-shadow: 0px 5px 21px 0px rgba(44, 44, 44, 0.07)
+  position: relative
+
+  th
+    font-weight: 600
+    color: $h2
+
+  .wrap-head
+    display: flex
+    align-items: center
+    padding: 10px
+    border-bottom: 1px solid #e1e9ee
+
+  .wrap-body
+    padding: 10px 5px
+
+  .prev, .next
+    border: 0
+    background: url(../img/svg/up-arrow.svg)
+    filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
+    height: 15px
+    width: 15px
+    padding: 0
+
+    &:focus
+      outline: 0
+
+  .prev
+    transform: rotateZ(-90deg)
+
+  .next
+    transform: rotateZ(90deg)
+
+  table
+    width: 100%
+    text-align: center
+
 .page-404
-	height: calc(100vh - 414px)
-	position: relative
-	min-height: 620px
-	padding: 40px 0
-	+media-breakpoint-down(xs)
-		min-height: 350px
-	&:before
-		content: ''
-		width: 100%
-		height: 100%
-		position: absolute
-		left: 0
-		top: 0
-		background: url(../img/svg/city_front.svg) no-repeat bottom/110%,url(../img/svg/city_back.svg) no-repeat bottom/110%
-		filter: sepia() hue-rotate(181deg) saturate(101%) brightness(95%)
-		z-index: -1
-		+media-breakpoint-down(md)
-			background-size: 150%, 150%
-		+media-breakpoint-down(sm)
-			background-size: 200%, 200%
-	strong
-		font-size: 200px
-		font-weight: 600
-		color: $second
-		line-height: 1
-		+media-breakpoint-down(xs)
-			font-size: 100px
+  height: calc(100vh - 414px)
+  position: relative
+  min-height: 620px
+  padding: 40px 0
+  +media-breakpoint-down(xs)
+    min-height: 350px
+
+  &:before
+    content: ''
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    background: url(../img/svg/city_front.svg) no-repeat bottom/110%, url(../img/svg/city_back.svg) no-repeat bottom/110%
+    filter: sepia() hue-rotate(181deg) saturate(101%) brightness(95%)
+    z-index: -1
+    +media-breakpoint-down(md)
+      background-size: 150%, 150%
+    +media-breakpoint-down(sm)
+      background-size: 200%, 200%
+
+  strong
+    font-size: 200px
+    font-weight: 600
+    color: $second
+    line-height: 1
+    +media-breakpoint-down(xs)
+      font-size: 100px
 
 #map
-	height: calc(100vh - 400px)
-	min-height: 420px
-	position: relative
-	overflow: visible
-	transition: .5s 
-	+media-breakpoint-down(md)
-		transform-origin: bottom
-	+media-breakpoint-down(xs)
-		min-height: auto
-		max-width: 100%
-	&.small
-		transform: scale(0.85)
-	path:hover, path.active
-		fill: #4697dd
+  height: calc(100vh - 400px)
+  min-height: 420px
+  position: relative
+  overflow: visible
+  transition: .5s
+  +media-breakpoint-down(md)
+    transform-origin: bottom
+  +media-breakpoint-down(xs)
+    min-height: auto
+    max-width: 100%
+
+  &.small
+    transform: scale(0.85)
+
+  path:hover, path.active
+    fill: #4697dd
 
 .map-tooltip
-	position: absolute
-	display: none
-	background: #74d14c
-	color: #fff
-	padding: 8px
-	white-space: nowrap
-	pointer-events: none
-	z-index: 1000
-	img
-		width: 125px
-		height: 54px
-		object-fit: cover
-	span
-		text-align: center
-		display: block
-	&:after
-		content: ''
-		position: absolute
-		left: 50%
-		transform: translateX(-50%)
-		bottom: -20px
-		border: 10px solid transparent
-		border-top: 10px solid #74d14c
-		pointer-events: none
+  position: absolute
+  display: none
+  background: #74d14c
+  color: #fff
+  padding: 8px
+  white-space: nowrap
+  pointer-events: none
+  z-index: 1000
+
+  img
+    width: 125px
+    height: 54px
+    object-fit: cover
+
+  span
+    text-align: center
+    display: block
+
+  &:after
+    content: ''
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    bottom: -20px
+    border: 10px solid transparent
+    border-top: 10px solid #74d14c
+    pointer-events: none
 
 #scene
-	height: calc(100vh - 100px)
-	min-height: 665px
-	position: relative
-	display: flex
-	overflow: hidden
-	+media-breakpoint-down(lg)
-		height: calc(100vh - 80px)
-	+media-breakpoint-down(md)
-		height: auto
-		padding-bottom: 50px
-	.layer:not(.s)
-		opacity: .6
-		position: absolute !important
-		bottom: 0
-		right: 0
-		top: 0
-		left: 0
-		img
-			height: 50%
-			position: absolute
-			bottom: 0
-			left: 50%
-			transform: translateX(-50%)
-			max-width: none
+  height: calc(100vh - 100px)
+  min-height: 665px
+  position: relative
+  display: flex
+  overflow: hidden
+  +media-breakpoint-down(lg)
+    height: calc(100vh - 80px)
+  +media-breakpoint-down(md)
+    height: auto
+    padding-bottom: 50px
+
+  .layer:not(.s)
+    opacity: .6
+    position: absolute !important
+    bottom: 0
+    right: 0
+    top: 0
+    left: 0
+
+    img
+      height: 50%
+      position: absolute
+      bottom: 0
+      left: 50%
+      transform: translateX(-50%)
+      max-width: none
 
 footer
-	background: #063861
-	color: $footerText
-	.two-menus
-		display: grid
-		grid-template-columns: 1fr 1fr
-		grid-gap: 50px
-		+media-breakpoint-down(sm)
-			display: flex
-			flex-direction: column
-			text-align: center
-		a
-			transition: .25s
-			&:hover
-				color: #fff
-	h3
-		color: #fff
-		font-size: 22px
-		+media-breakpoint-down(sm)
-			text-align: center
-	.menu-wrap
-		+media-breakpoint-down(sm)
-			width: 100%
-	.logo-wrap
-		margin: 0
-		+media-breakpoint-down(md)
-			width: 100%
-			a
-				width: 307px
-				display: block
-				margin: auto
-				margin-bottom: 20px
-		+media-breakpoint-down(xs)
-			a
-				width: 237px
-	.social-wrap
-		+media-breakpoint-down(sm)
-			margin-top: 20px
-			width: 100%
-			.social-list
-				justify-content: center
-	.top-row
-		padding: 50px 0
-		position: relative
-		z-index: 1
-		.row
-			justify-content: space-between
-		&.visible
-			&:before
-				content: ''
-				position: absolute
-				top: 0
-				left: 0
-				right: 0
-				bottom: 0
-				opacity: .05
-				z-index: -1
-				background: url(../img/@2x/OCERHB0.webp) no-repeat 50% 100%/100%
-				+media-breakpoint-down(sm)
-					background-size: 200%
-				+media-breakpoint-down(xs)
-					background-size: 300%
-	.bottom-row
-		text-align: center
-		padding: 20px 0
-		a
-			transition: .25s
-			&:hover
-				color: #fff
-		span:first-child
-			&:after
-				content: ''
-				display: inline-block
-				width: 2px
-				height: 12px
-				margin-left: 10px
-				margin-right: 5px
-				background: $second
+  background: #063861
+  color: $footerText
+
+  .two-menus
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 50px
+    +media-breakpoint-down(sm)
+      display: flex
+      flex-direction: column
+      text-align: center
+
+    a
+      transition: .25s
+
+      &:hover
+        color: #fff
+
+  h3
+    color: #fff
+    font-size: 22px
+    +media-breakpoint-down(sm)
+      text-align: center
+
+  .menu-wrap
+    +media-breakpoint-down(sm)
+      width: 100%
+
+  .logo-wrap
+    margin: 0
+    +media-breakpoint-down(md)
+      width: 100%
+      a
+        width: 307px
+        display: block
+        margin: auto
+        margin-bottom: 20px
+    +media-breakpoint-down(xs)
+      a
+        width: 237px
+
+  .social-wrap
+    +media-breakpoint-down(sm)
+      margin-top: 20px
+      width: 100%
+      .social-list
+        justify-content: center
+
+  .top-row
+    padding: 50px 0
+    position: relative
+    z-index: 1
+
+    .row
+      justify-content: space-between
+
+    &.visible
+      &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        opacity: .05
+        z-index: -1
+        background: url(../img/@2x/OCERHB0.webp) no-repeat 50% 100%/100%
+        +media-breakpoint-down(sm)
+          background-size: 200%
+        +media-breakpoint-down(xs)
+          background-size: 300%
+
+  .bottom-row
+    text-align: center
+    padding: 20px 0
+
+    a
+      transition: .25s
+
+      &:hover
+        color: #fff
+
+    span:first-child
+      &:after
+        content: ''
+        display: inline-block
+        width: 2px
+        height: 12px
+        margin-left: 10px
+        margin-right: 5px
+        background: $second
 
 // Custom Sass / Remove before use
-.parent // Lazy Load Placeholder Generator: https://webdesign-master.ru/services/lazy/
-	background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7)
+.parent
+  // Lazy Load Placeholder Generator: https://webdesign-master.ru/services/lazy/
+  background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7)
+
 .content
-	width: 76%
-	margin: 0 auto
-	word-spacing: 4px
-	ul
-		margin: 3% 0 3% 3%
-	img
-		margin-right: 1%
-		width: 20px
-	.checks
-		display: flex
-		align-items: center
+  width: 76%
+  margin: 0 auto
+  word-spacing: 4px
 
-		&:before
-			content: ''
-			height: 20px
-			width: 20px
-			margin-right: 1%
-			background: url("../img/svg/check.svg")  no-repeat center/80%
-	.cookietext
-		margin-top: 3%
-	.headline
-		font-weight: 500
+  ul
+    margin: 3% 0 3% 3%
+
+  img
+    margin-right: 1%
+    width: 20px
+
+  .checks
+    display: flex
+    align-items: center
+
+    &:before
+      content: ''
+      height: 20px
+      width: 20px
+      margin-right: 1%
+      background: url("../img/svg/check.svg") no-repeat center/80%
+
+  .cookietext
+    margin-top: 3%
+
+  .headline
+    font-weight: 500
+
 .contact
-	width: 100%
+  width: 100%
 
-	.contct
-		margin-top: 1%
-		display: flex
-		flex-wrap: wrap
-		justify-content: space-between
+  .contct
+    margin-top: 1%
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
 
-	h3
-		margin-top: 5%
-		font-size:	120%
-	li
-		display: flex
-		flex-flow: column
-		justify-content: space-between
-	.phoness
+  h3
+    margin-top: 5%
+    font-size: 120%
 
-		border-left: 4px solid #74d14c
-		padding-left: 1%
-		&:before
-			content: ''
-			height: 20px
-			width: 20px
-			background: url("../img/svg/phone.svg")  no-repeat center/80%
-	.emails
+  li
+    display: flex
+    flex-flow: column
+    justify-content: space-between
 
-		border-left: 4px solid #74d14c
-		padding-left: 1%
-		&:before
-			content: ''
-			height: 20px
-			width: 20px
-			background: url("../img/svg/emails.svg")  no-repeat center/80%
-	.adresss
-		border-left: 4px solid #74d14c
-		padding-left: 1%
-		&:before
-			content: ''
-			height: 20px
-			width: 20px
-			background: url("../img/svg/points.svg")  no-repeat center/80%
-	.socials
-		border-left: 4px solid #74d14c
-		padding-left: 1%
+  .phoness
+
+    border-left: 4px solid $second
+    padding-left: 1%
+
+    &:before
+      content: ''
+      height: 20px
+      width: 20px
+      background: url("../img/svg/phone.svg") no-repeat center/80%
+
+  .emails
+
+    border-left: 4px solid $second
+    padding-left: 1%
+
+    &:before
+      content: ''
+      height: 20px
+      width: 20px
+      background: url("../img/svg/emails.svg") no-repeat center/80%
+
+  .adresss
+    border-left: 4px solid $second
+    padding-left: 1%
+
+    &:before
+      content: ''
+      height: 20px
+      width: 20px
+      background: url("../img/svg/points.svg") no-repeat center/80%
+
+  .socials
+    border-left: 4px solid $second
+    padding-left: 1%
 
 .maps
-	background-color: #6c757d
-	width: 100%
-	height: 500px
-	margin: 5% 0 5% 0
+  background-color: #6c757d
+  width: 100%
+  height: 500px
+  margin: 5% 0 5% 0
 
 .comparerup
-	display: flex
-	width: 100%
-	.search
-		height: 55px
-		width: 100%
-		position: relative
+  display: flex
+  width: 100%
 
-		@media screen and ( min-device-width:  766px)
-			.entrer
-				display: none
-			margin-left: 30px
+  .search
+    height: 55px
+    width: 100%
+    position: relative
 
-
-	.search .input
-		border: 1px solid #e1e9ee
-		outline: none
-		width: 100%
-		height: 100%
-		padding-left: 20px
+    @media screen and (min-device-width: 766px)
+      .entrer
+        display: none
+      margin-left: 30px
 
 
+  .search .input
+    border: 1px solid #e1e9ee
+    outline: none
+    width: 100%
+    height: 100%
+    padding-left: 20px
 
 
-	.search .input:focus
-		border: 1px solid #527b9b
+  .search .input:focus
+    border: 1px solid #527b9b
 
-	.submit
-		border: none
-		position: absolute
-		top: 0
-		right: 0
-		margin-right: 10px
-		width: 20px
-		height: 100%
-		cursor: pointer
-		background: url(../img/svg/search.svg) no-repeat center/80%
+  .submit
+    border: none
+    position: absolute
+    top: 0
+    right: 0
+    margin-right: 10px
+    width: 20px
+    height: 100%
+    cursor: pointer
+    background: url(../img/svg/search.svg) no-repeat center/80%
 
-	.entrer
-		@media screen and ( max-device-width: 766px)
-				display: none
-		font-weight: 600
-		min-width: 230px
-		height: 55px
-		display: flex
-		align-items: center
-		justify-content: center
-		border: 0
-		background: transparent
-		text-transform: uppercase
-		color: #feffff
-		padding: 0 20px
-		position: relative
-		span
-			position: relative
-			z-index: 1
-		&:before
-			content: ''
-			position: absolute
-			top: 0
-			left: 0
-			width: 100%
-			height: 100%
-			z-index: 1
-			background: $primary
-			transition: .5s
-		&:after
-			content: ''
-			position: absolute
-			top: 0
-			left: 0
-			width: 100%
-			height: 100%
-			z-index: 1
-			opacity: 0
-			transition: .5s
-			border: 1px solid #e6e6e6
-			transform: scale(1.2,1.2)
-		&:hover
-			color: $primary
-			&:before
-				opacity: 0
-				transform: scale(0.5,0.5)
-			&:after
-				opacity: 1
-				transform: scale(1,1)
+  .entrer
+    @media screen and (max-device-width: 766px)
+      display: none
+    font-weight: 600
+    min-width: 230px
+    height: 55px
+    display: flex
+    align-items: center
+    justify-content: center
+    border: 0
+    background: transparent
+    text-transform: uppercase
+    color: #feffff
+    padding: 0 20px
+    position: relative
+
+    span
+      position: relative
+      z-index: 1
+
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      z-index: 1
+      background: $primary
+      transition: .5s
+
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      z-index: 1
+      opacity: 0
+      transition: .5s
+      border: 1px solid #e6e6e6
+      transform: scale(1.2, 1.2)
+
+    &:hover
+      color: $primary
+
+      &:before
+        opacity: 0
+        transform: scale(0.5, 0.5)
+
+      &:after
+        opacity: 1
+        transform: scale(1, 1)
 
 
 .comparerdown
-	margin: 30px 0 90px 0
+  margin: 30px 0 90px 0
+  width: 100%
 
-	width: 100%
-	.list-comparer
-		display: flex
-
-		justify-content: space-between
-		color: #fefefe
-		width: 100%
-		height: 60px
-		background-color: #074170
-		span
-			margin: auto 0 auto auto
-		li
-			margin: auto
-			display: flex
-			flex-grow: 1
-			height: 60px
-			font-size: 16px
-			font-weight: 500
-			line-height: 30px
-			.butonup-list
-				margin: 0 5px 0 10px
-				border: none
-				&:before
-				content: ''
-				height: 60px
-				width: 10px
-				background: url("../img/svg/updown.svg")  no-repeat center/80%
-			.butondown-list
-				margin: auto auto auto 0
-				border: none
-				&:before
-				content: ''
-				height: 60px
-				width: 10px
-				background: url("../img/svg/updown.svg") no-repeat center/80%
-				transform: rotateZ(180deg)
+  .iteeems
 
 
-		.list-comparer-nom
-			flex-grow: 6
+    .buton-plus
+      display: none
 
-		@media screen and ( max-device-width:  1200px)
-			.list-comparer-commission
-				display: none
-		@media screen and ( max-device-width:  990px)
-			.list-comparer-leboncoin
-				display: none
-		@media screen and ( max-device-width:  766px)
-			.list-comparer-ca
-				display: none
-		@media screen and ( max-device-width:  570px)
-			.list-comparer-prix
-				display: none
+      button
+        color: #ffffff
+        font-size: 14px
+        font-weight: 400
+        line-height: 30px
+        border: none
+        background-color: #74d14c
+        color: white
+
+    li
+      margin: auto 45% auto auto
+
+    p
+      margin: auto
+      font-size: 16px
+      font-weight: 400
+      line-height: 30px
+
+    label
+
+      white-space: nowrap
+      color: #4e4e4e
+      font-size: 16px
+      font-weight: 500
+      line-height: 30px
+      cursor: pointer
+
+      &:hover
+        text-decoration: underline chartreuse
+
+    width: 100%
+    display: grid
+    grid-template-columns: 20% 15% 20% 15% 15% 15%
+    height: 60px
+    @media screen and (max-device-width: 1415px)
+      grid-template-columns: 26% 19% 19% 19% 19%
+      .list-comparer-leboncoin
+        display: none
+
+    @media screen and (max-device-width: 1200px)
+      grid-template-columns: 31% 23% 23% 23%
+      .list-comparer-commission
+        display: none
+    @media screen and (max-device-width: 990px)
+      grid-template-columns: 40% 30% 30%
+      .list-comparer-ca
+        display: none
+    @media screen and (max-device-width: 770px)
+      grid-template-columns: 44% 40% 10%
+      label
+        font-size: 14px
+        font-weight: 500
+        line-height: 18px
+      .list-comparer-prix
+        display: none
+      .buton-plus
+        display: inline
+    @media screen and (max-device-width: 575px)
+      label
+        white-space: normal
+
+  hr
+    margin: 0 0 0 0
+    border: none
+    width: 100%
+    height: 2px
+    background-color: #e1e9ee
+
+  .chekkss
+    margin: auto 0 auto 15px
+    display: flex
+
+    .checkes
+      position: relative
+      display: block
+      width: 25px
+      height: 25px
+      margin-right: 20px
+      border: 1px solid #d2dbe1
+      background: url(../img/svg/checkcomp.svg) no-repeat center/80%
+      cursor: pointer
+
+      &:hover
+        border-color: $second
+
+    input[type="checkbox"]
+      &:checked + span
+        background-color: $second
+        transition: all linear .5s
+
+    input[type="checkbox"]
+      display: none
+
+    @media screen and (max-device-width: 570px)
+      .checkes
 
 
+  .list-comparer
+    display: grid
+    grid-template-columns: 20% 15% 20% 15% 15% 15%
+    color: #fefefe
+    width: 100%
+    height: 60px
+    background-color: #074170
+
+
+    span
+      margin: auto 0 auto auto
+
+    li
+      white-space: nowrap
+      margin: auto
+      display: flex
+      flex-grow: 1
+      height: 60px
+      font-size: 16px
+      font-weight: 500
+      line-height: 30px
+
+      .butonup-list
+        margin: 0 5px 0 10px
+        border: none
+
+        &:before
+        content: ''
+        height: 60px
+        width: 10px
+        background: url("../img/svg/updown.svg") no-repeat center/80%
+
+      .butondown-list
+        margin: auto auto auto 0
+        border: none
+
+        &:before
+        content: ''
+        height: 60px
+        width: 10px
+        background: url("../img/svg/updown.svg") no-repeat center/80%
+        transform: rotateZ(180deg)
+
+    @media screen and (max-device-width: 1415px)
+      grid-template-columns: 26% 19% 19% 19% 19%
+      .list-comparer-leboncoin
+        display: none
+    @media screen and (max-device-width: 1200px)
+      grid-template-columns: 31% 23% 23% 23%
+      .list-comparer-commission
+        display: none
+    @media screen and (max-device-width: 990px)
+      grid-template-columns: 40% 30% 30%
+      .list-comparer-ca
+        display: none
+
+    @media screen and (max-device-width: 770px)
+      justify-items: stretch
+      grid-template-columns: 42% 40%
+      li
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        font-size: 16px
+        font-weight: 500
+        line-height: 30px
+
+        .butonup-list
+          height: 10px
+
+        .butondown-list
+          height: 10px
+
+        .buttmin
+          position: absolute
+          margin-top: 30px
+          display: flex
+          justify-content: space-between
+          display: flex
+      .list-comparer-prix
+        display: none
 
 
 
