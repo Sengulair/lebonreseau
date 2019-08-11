@@ -130,12 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	function Calendar3(id, year, month) {
 		var Dlast = new Date(year, month + 1, 0).getDate(),
-			D = new Date(year, month, Dlast),
-			DNlast = D.getDay(),
-			DNfirst = new Date(D.getFullYear(), D.getMonth(), 1).getDay(),
-			calendar = '<tr>',
-			m = document.querySelector('#' + id + ' option[value="' + D.getMonth() + '"]'),
-			g = document.querySelector('#' + id + ' input');
+		D = new Date(year, month, Dlast),
+		DNlast = D.getDay(),
+		DNfirst = new Date(D.getFullYear(), D.getMonth(), 1).getDay(),
+		calendar = '<tr>',
+		m = document.querySelector('#' + id + ' option[value="' + D.getMonth() + '"]');
+		// y = document.querySelector('#' + id + ' input');
+		y = document.querySelector('#' + id + ' option[value="' + D.getFullYear() + '"]')
 		if (DNfirst != 0) {
 			for (let i = 1; i < DNfirst; i++) calendar += '<td>';
 		} else {
@@ -153,37 +154,39 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 		for (let i = DNlast; i < 7; i++) calendar += '<td>';
 		document.querySelector('#' + id + ' tbody').innerHTML = calendar;
-		g.value = D.getFullYear();
+		// g.value = D.getFullYear();
 		m.selected = true;
-		document.querySelector('#' + id + ' option[value=\'' + new Date().getMonth() + '\']').style.color = 'rgb(220, 0, 0)'; // в выпадающем списке выделен текущий месяц
+		y.selected = true;
+		// document.querySelector('#' + id + ' option[value=\'' + new Date().getMonth() + '\']').style.color = 'rgb(220, 0, 0)'; // в выпадающем списке выделен текущий месяц
 	}
 	if (document.querySelector('#calendar')) {
 		Calendar3("calendar", new Date().getFullYear(), new Date().getMonth());
 		document.querySelector('#calendar').onchange = () => {
-			Calendar3("calendar", document.querySelector('#calendar input').value, parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
+			Calendar3("calendar", document.querySelector('#calendar .year').value, parseFloat(document.querySelector('#calendar .month').value));
 		}
-		Calendar3("calendar", new Date().getFullYear(), new Date().getMonth());
 		document.querySelector('#calendar .prev').onclick = () => {
-			const prevYear = document.querySelector('#calendar input').value,
-				prevMonth = parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value);
+			const prevMonth = parseFloat(document.querySelector('#calendar .month').options[document.querySelector('#calendar select').selectedIndex].value);
 			if (prevMonth != 0) {
-				document.querySelector('#calendar select').selectedIndex = prevMonth - 1;
+				document.querySelector('#calendar .month').selectedIndex = prevMonth - 1;
 			} else {
-				document.querySelector('#calendar select').selectedIndex = 11;
-				document.querySelector('#calendar input').value = +prevYear - 1;
+				if (document.querySelector('#calendar .year').options[document.querySelector('#calendar .year').selectedIndex - 1]) {
+					document.querySelector('#calendar .month').selectedIndex = 11;
+					document.querySelector('#calendar .year').selectedIndex = document.querySelector('#calendar .year').selectedIndex - 1;
+				}
 			}
-			Calendar3("calendar", document.querySelector('#calendar input').value, parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
+			Calendar3("calendar", document.querySelector('#calendar .year').value, parseFloat(document.querySelector('#calendar .month').value));
 		}
 		document.querySelector('#calendar .next').onclick = () => {
-			const prevYear = document.querySelector('#calendar input').value,
-				prevMonth = parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value);
+			const prevMonth = parseFloat(document.querySelector('#calendar .month').options[document.querySelector('#calendar .month').selectedIndex].value);
 			if (prevMonth != 11) {
-				document.querySelector('#calendar select').selectedIndex = prevMonth + 1;
+				document.querySelector('#calendar .month').selectedIndex = prevMonth + 1;
 			} else {
-				document.querySelector('#calendar select').selectedIndex = 0;
-				document.querySelector('#calendar input').value = +prevYear + 1;
+				if (document.querySelector('#calendar .year').options[document.querySelector('#calendar .year').selectedIndex + 1]) {
+					document.querySelector('#calendar .month').selectedIndex = 0;
+					document.querySelector('#calendar .year').selectedIndex = document.querySelector('#calendar .year').selectedIndex + 1;
+				}
 			}
-			Calendar3("calendar", document.querySelector('#calendar input').value, parseFloat(document.querySelector('#calendar select').options[document.querySelector('#calendar select').selectedIndex].value));
+			Calendar3("calendar", document.querySelector('#calendar .year').value, parseFloat(document.querySelector('#calendar .month').value));
 		}
 	}
 });
