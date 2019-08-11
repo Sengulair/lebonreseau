@@ -1515,372 +1515,315 @@ footer
   background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7)
 
 .content
-  width: 76%
-  margin: 0 auto
-  word-spacing: 4px
-
-  ul
-    margin: 3% 0 3% 3%
-
-  img
-    margin-right: 1%
-    width: 20px
-
-  .checks
-    display: flex
-    align-items: center
-
-    &:before
-      content: ''
-      height: 20px
-      width: 20px
-      margin-right: 1%
-      background: url("../img/svg/check.svg") no-repeat center/80%
-
-  .cookietext
-    margin-top: 3%
-
-  .headline
-    font-weight: 500
+	width: 76%
+	margin: 0 auto
+	word-spacing: 4px
+	ul
+		margin: 3% 0 3% 3%
+	img
+		margin-right: 1%
+		width: 20px
+	.checks
+		display: flex
+		align-items: center
+		&:before
+			content: ''
+			height: 20px
+			width: 20px
+			margin-right: 1%
+			background: url("../img/svg/check.svg") no-repeat center/80%
+	.cookietext
+		margin-top: 3%
+	.headline
+		font-weight: 500
 
 .contact
-  width: 100%
-
-  .contct
-    margin-top: 1%
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-between
-
-  h3
-    margin-top: 5%
-    font-size: 120%
-
-  li
-    display: flex
-    flex-flow: column
-    justify-content: space-between
-
-  .phoness
-
-    border-left: 4px solid $second
-    padding-left: 1%
-
-    &:before
-      content: ''
-      height: 20px
-      width: 20px
-      background: url("../img/svg/phone.svg") no-repeat center/80%
-
-  .emails
-
-    border-left: 4px solid $second
-    padding-left: 1%
-
-    &:before
-      content: ''
-      height: 20px
-      width: 20px
-      background: url("../img/svg/emails.svg") no-repeat center/80%
-
-  .adresss
-    border-left: 4px solid $second
-    padding-left: 1%
-
-    &:before
-      content: ''
-      height: 20px
-      width: 20px
-      background: url("../img/svg/points.svg") no-repeat center/80%
-
-  .socials
-    border-left: 4px solid $second
-    padding-left: 1%
+	width: 100%
+	.contct
+		margin-top: 1%
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+	h3
+		margin-top: 5%
+		font-size: 120%
+	li
+		display: flex
+		flex-flow: column
+		justify-content: space-between
+	.phoness
+		border-left: 4px solid $second
+		padding-left: 1%
+		&:before
+			content: ''
+			height: 20px
+			width: 20px
+			background: url("../img/svg/phone.svg") no-repeat center/80%
+	.emails
+		border-left: 4px solid $second
+		padding-left: 1%
+		&:before
+			content: ''
+			height: 20px
+			width: 20px
+			background: url("../img/svg/emails.svg") no-repeat center/80%
+	.adresss
+		border-left: 4px solid $second
+		padding-left: 1%
+		&:before
+			content: ''
+			height: 20px
+			width: 20px
+			background: url("../img/svg/points.svg") no-repeat center/80%
+	.socials
+		border-left: 4px solid $second
+		padding-left: 1%
 
 .maps
-  background-color: #6c757d
-  width: 100%
-  height: 500px
-  margin: 5% 0 5% 0
+	background-color: #6c757d
+	width: 100%
+	height: 500px
+	margin: 5% 0 5% 0
+.wrapper-map
+	position: relative
 
 .comparerup
-  display: flex
-  width: 100%
+	display: flex
+	width: 100%
+	.search
+		height: 55px
+		width: 100%
+		position: relative
+		@media screen and (min-device-width: 766px)
+			.entrer
+				display: none
+			margin-left: 30px
+	.search .input
+		border: 1px solid #e1e9ee
+		outline: none
+		width: 100%
+		height: 100%
+		padding-left: 20px
+	.search .input:focus
+		border: 1px solid #527b9b
+	.submit
+		border: none
+		position: absolute
+		top: 0
+		right: 0
+		margin-right: 10px
+		width: 20px
+		height: 100%
+		cursor: pointer
+		background: url(../img/svg/search.svg) no-repeat center/80%
+	.entrer
+		@media screen and (max-device-width: 766px)
+			display: none
+		font-weight: 600
+		min-width: 230px
+		height: 55px
+		display: flex
+		align-items: center
+		justify-content: center
+		border: 0
+		background: transparent
+		text-transform: uppercase
+		color: #feffff
+		padding: 0 20px
+		position: relative
+		span
+			position: relative
+			z-index: 1
+		&:before
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			z-index: 1
+			background: $primary
+			transition: .5s
+		&:after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			z-index: 1
+			opacity: 0
+			transition: .5s
+			border: 1px solid #e6e6e6
+			transform: scale(1.2, 1.2)
+		&:hover
+			color: $primary
+			&:before
+				opacity: 0
+				transform: scale(0.5, 0.5)
+			&:after
+				opacity: 1
+				transform: scale(1, 1)
 
-  .search
-    height: 55px
-    width: 100%
-    position: relative
-
-    @media screen and (min-device-width: 766px)
-      .entrer
-        display: none
-      margin-left: 30px
-
-
-  .search .input
-    border: 1px solid #e1e9ee
-    outline: none
-    width: 100%
-    height: 100%
-    padding-left: 20px
-
-
-  .search .input:focus
-    border: 1px solid #527b9b
-
-  .submit
-    border: none
-    position: absolute
-    top: 0
-    right: 0
-    margin-right: 10px
-    width: 20px
-    height: 100%
-    cursor: pointer
-    background: url(../img/svg/search.svg) no-repeat center/80%
-
-  .entrer
-    @media screen and (max-device-width: 766px)
-      display: none
-    font-weight: 600
-    min-width: 230px
-    height: 55px
-    display: flex
-    align-items: center
-    justify-content: center
-    border: 0
-    background: transparent
-    text-transform: uppercase
-    color: #feffff
-    padding: 0 20px
-    position: relative
-
-    span
-      position: relative
-      z-index: 1
-
-    &:before
-      content: ''
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      z-index: 1
-      background: $primary
-      transition: .5s
-
-    &:after
-      content: ''
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      z-index: 1
-      opacity: 0
-      transition: .5s
-      border: 1px solid #e6e6e6
-      transform: scale(1.2, 1.2)
-
-    &:hover
-      color: $primary
-
-      &:before
-        opacity: 0
-        transform: scale(0.5, 0.5)
-
-      &:after
-        opacity: 1
-        transform: scale(1, 1)
-
+.list-comparer-items
+	border-bottom: 2px solid #e1e9ee
 
 .comparerdown
-  margin: 30px 0 90px 0
-  width: 100%
-
-  .iteeems
-
-
-    .buton-plus
-      display: none
-
-      button
-        color: #ffffff
-        font-size: 14px
-        font-weight: 400
-        line-height: 30px
-        border: none
-        background-color: #74d14c
-        color: white
-
-    li
-      margin: auto 45% auto auto
-
-    p
-      margin: auto
-      font-size: 16px
-      font-weight: 400
-      line-height: 30px
-
-    label
-
-      white-space: nowrap
-      color: #4e4e4e
-      font-size: 16px
-      font-weight: 500
-      line-height: 30px
-      cursor: pointer
-
-      &:hover
-        text-decoration: underline chartreuse
-
-    width: 100%
-    display: grid
-    grid-template-columns: 20% 15% 20% 15% 15% 15%
-    height: 60px
-    @media screen and (max-device-width: 1415px)
-      grid-template-columns: 26% 19% 19% 19% 19%
-      .list-comparer-leboncoin
-        display: none
-
-    @media screen and (max-device-width: 1200px)
-      grid-template-columns: 31% 23% 23% 23%
-      .list-comparer-commission
-        display: none
-    @media screen and (max-device-width: 990px)
-      grid-template-columns: 40% 30% 30%
-      .list-comparer-ca
-        display: none
-    @media screen and (max-device-width: 770px)
-      grid-template-columns: 44% 40% 10%
-      label
-        font-size: 14px
-        font-weight: 500
-        line-height: 18px
-      .list-comparer-prix
-        display: none
-      .buton-plus
-        display: inline
-    @media screen and (max-device-width: 575px)
-      label
-        white-space: normal
-
-  hr
-    margin: 0 0 0 0
-    border: none
-    width: 100%
-    height: 2px
-    background-color: #e1e9ee
-
-  .chekkss
-    margin: auto 0 auto 15px
-    display: flex
-
-    .checkes
-      position: relative
-      display: block
-      width: 25px
-      height: 25px
-      margin-right: 20px
-      border: 1px solid #d2dbe1
-      background: url(../img/svg/checkcomp.svg) no-repeat center/80%
-      cursor: pointer
-
-      &:hover
-        border-color: $second
-
-    input[type="checkbox"]
-      &:checked + span
-        background-color: $second
-        transition: all linear .5s
-
-    input[type="checkbox"]
-      display: none
-
-    @media screen and (max-device-width: 570px)
-      .checkes
-
-
-  .list-comparer
-    display: grid
-    grid-template-columns: 20% 15% 20% 15% 15% 15%
-    color: #fefefe
-    width: 100%
-    height: 60px
-    background-color: #074170
-
-
-    span
-      margin: auto 0 auto auto
-
-    li
-      white-space: nowrap
-      margin: auto
-      display: flex
-      flex-grow: 1
-      height: 60px
-      font-size: 16px
-      font-weight: 500
-      line-height: 30px
-
-      .butonup-list
-        margin: 0 5px 0 10px
-        border: none
-
-        &:before
-        content: ''
-        height: 60px
-        width: 10px
-        background: url("../img/svg/updown.svg") no-repeat center/80%
-
-      .butondown-list
-        margin: auto auto auto 0
-        border: none
-
-        &:before
-        content: ''
-        height: 60px
-        width: 10px
-        background: url("../img/svg/updown.svg") no-repeat center/80%
-        transform: rotateZ(180deg)
-
-    @media screen and (max-device-width: 1415px)
-      grid-template-columns: 26% 19% 19% 19% 19%
-      .list-comparer-leboncoin
-        display: none
-    @media screen and (max-device-width: 1200px)
-      grid-template-columns: 31% 23% 23% 23%
-      .list-comparer-commission
-        display: none
-    @media screen and (max-device-width: 990px)
-      grid-template-columns: 40% 30% 30%
-      .list-comparer-ca
-        display: none
-
-    @media screen and (max-device-width: 770px)
-      justify-items: stretch
-      grid-template-columns: 42% 40%
-      li
-        flex-direction: column
-        justify-content: center
-        align-items: center
-        font-size: 16px
-        font-weight: 500
-        line-height: 30px
-
-        .butonup-list
-          height: 10px
-
-        .butondown-list
-          height: 10px
-
-        .buttmin
-          position: absolute
-          margin-top: 30px
-          display: flex
-          justify-content: space-between
-          display: flex
-      .list-comparer-prix
-        display: none
+	margin: 30px 0 90px 0
+	width: 100%
+	.iteeems
+		.buton-plus
+			display: none
+			button
+				color: #ffffff
+				font-size: 14px
+				font-weight: 400
+				line-height: 30px
+				border: none
+				background-color: #74d14c
+				color: white
+		li
+			margin: auto
+			&:first-child
+				margin-left: 0
+		p
+			margin: auto
+			font-size: 16px
+			font-weight: 400
+			line-height: 30px
+		label
+			white-space: nowrap
+			color: #4e4e4e
+			font-size: 16px
+			font-weight: 500
+			line-height: 30px
+			cursor: pointer
+			&:hover
+				text-decoration: underline chartreuse
+		width: 100%
+		display: grid
+		grid-template-columns: 20% 15% 20% 15% 15% 15%
+		height: 60px
+		@media screen and (max-device-width: 1415px)
+			grid-template-columns: 26% 19% 19% 19% 19%
+			.list-comparer-leboncoin
+				display: none
+		@media screen and (max-device-width: 1200px)
+			grid-template-columns: 31% 23% 23% 23%
+			.list-comparer-commission
+				display: none
+		@media screen and (max-device-width: 990px)
+			grid-template-columns: 40% 30% 30%
+			.list-comparer-ca
+				display: none
+		@media screen and (max-device-width: 770px)
+			grid-template-columns: 44% 40% 10%
+			label
+				font-size: 14px
+				font-weight: 500
+				line-height: 18px
+			.list-comparer-prix
+				display: none
+			.buton-plus
+				display: inline
+		@media screen and (max-device-width: 575px)
+			label
+				white-space: normal
+	hr
+		margin: 0 0 0 0
+		border: none
+		width: 100%
+		height: 2px
+		background-color: #e1e9ee
+	.chekkss
+		margin: auto 0 auto 15px
+		display: flex
+		align-items: center
+		.checkes
+			position: relative
+			display: block
+			min-width: 25px
+			height: 25px
+			margin-right: 20px
+			border: 1px solid #d2dbe1
+			background: url(../img/svg/checkcomp.svg) no-repeat center/80%
+			cursor: pointer
+			&:hover
+				border-color: $second
+		input[type="checkbox"]
+			&:checked + span
+				background-color: $second
+				transition: all linear .5s
+		input[type="checkbox"]
+			display: none
+		@media screen and (max-device-width: 570px)
+			.checkes
+	.list-comparer
+		display: grid
+		grid-template-columns: 20% 15% 20% 15% 15% 15%
+		color: #fefefe
+		width: 100%
+		height: 60px
+		background-color: #074170
+		span
+			margin: auto 0 auto auto
+		li
+			white-space: nowrap
+			margin: auto
+			display: flex
+			flex-grow: 1
+			height: 60px
+			font-size: 16px
+			font-weight: 500
+			line-height: 30px
+			.butonup-list
+				margin: 0 5px 0 10px
+				border: none
+				&:before
+				content: ''
+				height: 60px
+				width: 10px
+				background: url("../img/svg/updown.svg") no-repeat center/80%
+			.butondown-list
+				margin: auto auto auto 0
+				border: none
+				&:before
+				content: ''
+				height: 60px
+				width: 10px
+				background: url("../img/svg/updown.svg") no-repeat center/80%
+				transform: rotateZ(180deg)
+		@media screen and (max-device-width: 1415px)
+			grid-template-columns: 26% 19% 19% 19% 19%
+			.list-comparer-leboncoin
+				display: none
+		@media screen and (max-device-width: 1200px)
+			grid-template-columns: 31% 23% 23% 23%
+			.list-comparer-commission
+				display: none
+		@media screen and (max-device-width: 990px)
+			grid-template-columns: 40% 30% 30%
+			.list-comparer-ca
+				display: none
+		@media screen and (max-device-width: 770px)
+			justify-items: stretch
+			grid-template-columns: 42% 40%
+			li
+				flex-direction: column
+				justify-content: center
+				align-items: center
+				font-size: 16px
+				font-weight: 500
+				line-height: 30px
+				.butonup-list
+					height: 10px
+				.butondown-list
+					height: 10px
+				.buttmin
+					position: absolute
+					margin-top: 30px
+					display: flex
+					justify-content: space-between
+					display: flex
+			.list-comparer-prix
+				display: none
