@@ -17,14 +17,12 @@ html
   animation-name: fadeInUp
 
 .animated
-  animation-duration: 1s
-  animation-fill-mode: both
-
-  &.delay-1s
-    animation-delay: 1s
-
-  &.delay-2s
-    animation-delay: 2s
+	animation-duration: 1s
+	animation-fill-mode: both
+	&.delay-1s
+		animation-delay: 0.5s
+	&.delay-2s
+		animation-delay: 1s
 
 @media (print), (prefers-reduced-motion: reduce)
   .animated
@@ -52,44 +50,47 @@ img
   max-width: 100%
   object-fit: cover
 
-ul, li
-  list-style-type: none
-  padding: 0
-  margin: 0
+ul, li, label
+	list-style-type: none
+	padding: 0
+	margin: 0
 
 h2
-  font-size: 36px
-  color: $h2
-  font-weight: 600
-  width: 100%
-  position: relative
-  padding-top: 20px
-  +media-breakpoint-down(xs)
-    font-size: 24px
-
-  &.center
-    text-align: center
-
-    &:before
-      left: 50%
-      transform: translateX(-50%)
-
-  &:before
-    content: ''
-    position: absolute
-    display: block
-    top: 0
-    left: 0
-    width: 67px
-    height: 2px
-    background: $second
-
+	font-size: 36px
+	color: $h2
+	font-weight: 600
+	width: 100%
+	position: relative
+	padding-top: 20px
+	+media-breakpoint-down(xs)
+		font-size: 24px
+		text-align: center
+		&:before
+			left: 50%
+			transform: translateX(-50%)
+	&.center
+		text-align: center
+		&:before
+			left: 50%
+			transform: translateX(-50%)
+	&:before
+		content: ''
+		position: absolute
+		display: block
+		top: 0
+		left: 0
+		width: 67px
+		height: 2px
+		background: $second
 h3
   font-weight: 600
   font-size: 24px
   color: $h2
   +media-breakpoint-down(xs)
     font-size: 18px
+
+main
+	width: 100%
 
 .button
   font-weight: 600
@@ -318,41 +319,41 @@ header
       margin-right: 0
 
 .first-screen
-  .col
-    transition: .5s
-    padding: 0.1px
-
-  +media-breakpoint-down(md)
-    .banner-wrap
-      order: -2
-
-      + .col
-        + .col
-          order: -1
-          min-width: 100%
-          height: 300px
-  +media-breakpoint-down(xs)
-    .banner-wrap
-      + .col
-        + .col
-          max-height: 210px
-
-  .introduction
-    margin-top: 50px
-    width: 435px
-    max-width: 100%
-    +media-breakpoint-down(md)
-      position: absolute
-      left: 50%
-      top: 0px
-      transform: translateX(-50%)
-      margin: 40px auto
-      h2
-        text-align: center
-
-        &:before
-          left: 50%
-          transform: translateX(-50%)
+	.col
+		transition: .5s
+		padding: 0.1px
+	+media-breakpoint-down(md)
+		.banner-wrap
+			order: -2
+			+ .col
+				+ .col	
+					order: -1
+					min-width: 100%
+					height: 300px
+	+media-breakpoint-down(xs)
+		.banner-wrap
+			+ .col
+				+ .col	
+					max-height: 210px
+	.introduction
+		margin-top: 50px
+		width: 435px
+		max-width: 100%
+		+media-breakpoint-down(md)
+			position: absolute
+			left: 50%
+			top: 0px
+			transform: translateX(-50%)
+			margin: 40px auto
+			h2
+				text-align: center
+				&:before
+					left: 50%
+					transform: translateX(-50%)
+		+media-breakpoint-down(md)
+			text-align: center
+			p
+				margin: 0
 
 .banner-wrap
   margin-top: 30px
@@ -551,14 +552,18 @@ header
       filter: invert(18%) sepia(68%) saturate(1490%) hue-rotate(183deg) brightness(96%) contrast(98%)
 
 .animated
-  animation-duration: 1.8s
-  animation-timing-function: cubic-bezier(0.23, 1, 0.38, 1)
-
-@keyframes grow
-  from
-    height: 0%
-  to
-    height: 60%
+	animation-duration: 1.8s
+	animation-timing-function: cubic-bezier(0.23, 1, 0.38, 1)
+@keyframes growH
+	from
+		height: 0%
+	to
+		height: 60%
+@keyframes growW
+	from
+		width: 0%
+	to
+		width: 60%
 
 .second-screen, .third-screen, .fourth-screen
   padding: 95px 0
@@ -566,93 +571,89 @@ header
     padding: 50px 0
 
 .third-screen
-  background: $second
-  overflow: hidden
-
-  &.visible
-    background: $second url(../img/@2x/img_vector_3_screen.webp) no-repeat center 100% / 100%
-    +media-breakpoint-down(md)
-      background-size: 125%
-
-  h2
-    color: #fff
-
-    &:before
-      background: #fff
-
-.news-page
-  margin-bottom: 50px
-
+	background: $second
+	overflow: hidden
+	&.visible
+		background: $second url(../img/@2x/img_vector_3_screen.webp) no-repeat center 100% / 100%
+		+media-breakpoint-down(md)
+			background-size: 125%
+	h2
+		color: #fff
+		&:before
+			background: #fff
+.mb-50
+	margin-bottom: 50px
+.block
+	height: 200px
+	width: 100vw
+	margin: 0 calc(-50vw + 50%)
+	background: rebeccapurple
+		
 .employment-list
-  li
-    display: flex
-    min-height: 240px
-    border: 1px solid #e1e9ee
-    margin-bottom: 30px
-    position: relative
-    transition: .5s
-    +media-breakpoint-down(sm)
-      flex-direction: column
-
-    &.animated
-      .line
-        animation: grow 1.8s ease
-
-    &:hover
-      box-shadow: 0px 10px 37.24px 0.76px rgba(44, 44, 44, 0.08)
-      border-color: transparent
-
-      .line
-        height: 100%
-        +media-breakpoint-down(sm)
-          height: 5px
-          width: 100%
-
-    .wrapper-text
-      padding: 40px
-      +media-breakpoint-down(xs)
-        padding: 20px
-        text-align: center
-
-      p:last-child
-        margin-bottom: 0
-
-    .line
-      display: block
-      height: 60%
-      width: 5px
-      position: absolute
-      left: 300px
-      top: 50%
-      transform: translateY(-50%)
-      transition: .5s
-      background: $second
-      +media-breakpoint-down(sm)
-        height: 5px
-        width: 60%
-        top: 160px
-        left: 50%
-        transform: translateX(-50%)
-
-    .wrapper-img
-      display: flex
-      flex-direction: column
-      align-items: center
-      justify-content: center
-      align-self: center
-      position: relative
-      padding: 0px 25px
-      min-width: 300px
-      max-width: 300px
-      +media-breakpoint-down(sm)
-        height: 155px
-
-  .title
-    font-weight: 500
-    text-transform: uppercase
-    margin-top: 20px
-    +media-breakpoint-down(sm)
-      margin-top: 10px
+	li
+		display: flex
+		min-height: 240px
+		border: 1px solid #e1e9ee
+		margin-bottom: 30px
+		position: relative
+		transition: .5s
+		+media-breakpoint-down(sm)
+			flex-direction: column
+		&.animated
+			.line
+				animation: growH 1.8s ease
+				+media-breakpoint-down(sm)
+					animation: growW 1.8s ease
+		&:hover
+			box-shadow: 0px 10px 37.24px 0.76px rgba(44, 44, 44, 0.08)
+			border-color: transparent
+			.line
+				height: 100%
+				+media-breakpoint-down(sm)
+					height: 5px
+					width: 100%
+		.wrapper-text
+			padding: 40px
+			+media-breakpoint-down(xs)
+				padding: 20px
+				text-align: center
+			p:last-child
+				margin-bottom: 0
+		.line
+			display: block
+			height: 60%
+			width: 5px
+			position: absolute
+			left: 300px
+			top: 50%
+			transform: translateY(-50%)
+			transition: height .5s
+			background: $second
+			+media-breakpoint-down(sm)
+				height: 5px
+				width: 60%
+				top: 160px
+				left: 50%
+				transform: translateX(-50%)
+				transition-property: width
+		.wrapper-img
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			align-self: center
+			position: relative
+			padding: 0px 25px
+			min-width: 300px
+			max-width: 300px
+			+media-breakpoint-down(sm)
+				height: 155px
+	.title
+		font-weight: 500
+		text-transform: uppercase
+		margin-top: 20px
+		+media-breakpoint-down(sm)
+			margin-top: 10px
 
 .agent-co-page
   display: flex
@@ -670,180 +671,182 @@ header
         border-color: transparent
 
 .list-cards
-  display: grid
-  grid-template-columns: 1fr 1fr
-  grid-gap: 30px
-  +media-breakpoint-down(md)
-    grid-template-columns: 1fr
+	display: grid
+	grid-template-columns: 1fr 1fr
+	grid-gap: 30px
+	+media-breakpoint-down(md)
+		grid-template-columns: 1fr
+	li
+		position: relative
+		perspective: 1000px
+		transition: 1s
+		cursor: pointer
+		transform-style: preserve-3d
+		// overflow: hidden
+		&.active
+			transform: rotateY(180deg)
+			.front
+				// transform: rotateY(180deg)
+				// opacity: 0
+				// z-index: -11
+			.back
+				// transform: rotateY(360deg)
+				// transform: rotate(0)
+				// opacity: 1
+				// pointer-events: auto
+	.front, .back
+		transition: .5s
+		width: 100%
+		height: 100%
+		left: 0
+		top: 0
+		padding: 28px 30px
+		display: flex
+		flex-direction: column
+		z-index: 0
+		backface-visibility: hidden
+		+media-breakpoint-down(xs)
+			padding: 23px 25px
+		&:before
+			content: ''
+			position: absolute
+			bottom: 0
+			left: 0
+			right: 0
+			top: 0
+			z-index: -1
+			background: #fff url(../img/svg/card-bgnd.svg) no-repeat -136% 100%/80%
+			transform: scale(-1, 1)
+		a
+			margin-top: auto
+			color: $h2
+			font-weight: 500
+			position: relative
+			align-self: flex-start
+			z-index: 1
+			span
+				position: relative
+				z-index: 1
+				transition: .5s
+				background: linear-gradient(transparent calc(100% - 4px), $second 0px)
+			&:hover span
+				padding-bottom: 6px
+			// &:hover:after
+			// 	bottom: 0
+			// &:after
+			// 	content: ''
+			// 	position: absolute
+			// 	bottom: 6px
+			// 	left: 0
+			// 	width: 100%
+			// 	height: 4px
+			// 	background: $second
+			// 	transition: .5s
+	.front
+		position: relative
+	.back
+		position: absolute
+		color: #fff
+		// z-index: -10
+		// transform: rotate(20deg)
+		// opacity: 0
+		// pointer-events: none
+		transform: rotateY(180deg)
+		a span, h3
+			color: #fff
+		&:before
+			background: $primary url(../img/svg/card-bgnd-active.svg) no-repeat -136% 100%/80% !important
 
-  li
-    position: relative
-    perspective: 1000px
-    transition: .5s
-    cursor: pointer
-    // overflow: hidden
-    &.active
-      .front
-        // transform: rotateY(180deg)
-        opacity: 0
-        z-index: -11
-
-      .back
-        // transform: rotateY(360deg)
-        transform: rotate(0)
-        opacity: 1
-        pointer-events: auto
-
-  .front, .back
-    transition: .5s
-    width: 100%
-    height: 100%
-    left: 0
-    top: 0
-    padding: 28px 30px
-    display: flex
-    flex-direction: column
-    z-index: 0
-    backface-visibility: hidden
-    +media-breakpoint-down(xs)
-      padding: 23px 25px
-
-    &:before
-      content: ''
-      position: absolute
-      bottom: 0
-      left: 0
-      right: 0
-      top: 0
-      z-index: -1
-      background: #fff url(../img/svg/card-bgnd.svg) no-repeat -136% 100%/80%
-      transform: scale(-1, 1)
-
-    a
-      margin-top: auto
-      color: $h2
-      font-weight: 500
-      position: relative
-      align-self: flex-start
-      z-index: 1
-
-      span
-        position: relative
-        z-index: 1
-
-      &:hover:after
-        bottom: 0
-
-      &:after
-        content: ''
-        position: absolute
-        bottom: 6px
-        left: 0
-        width: 100%
-        height: 4px
-        background: $second
-        transition: .5s
-
-  .front
-    position: relative
-
-  .back
-    position: absolute
-    color: #fff
-    z-index: -10
-    transform: rotate(20deg)
-    opacity: 0
-    pointer-events: none
-
-    a span, h3
-      color: #fff
-
-    &:before
-      background: $primary url(../img/svg/card-bgnd-active.svg) no-repeat -136% 100%/80% !important
+.card
+	color: #e8edf2
+	position: relative
+	width: 100%
+	padding: 30px 5%
+	&:before
+		content: ''
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		top: 0
+		z-index: -1
+		background: $primary url(../img/svg/card-bgnd-active.svg) no-repeat -25% 100%/40%
+		transform: scale(-1, 1)
+	h3
+		color: #fff
 
 .list-news
-  display: flex
-  margin-bottom: 50px
-  +media-breakpoint-down(md)
-    flex-direction: column
-
-  li
-    height: 684px
-    flex: 1
-    box-shadow: 0px 17px 21px 0px rgba(44, 44, 44, 0.07)
-    overflow: hidden
-    margin: 0 2%
-    transition: 1s
-    +media-breakpoint-down(lg)
-      height: 534px
-    +media-breakpoint-down(md)
-      margin: 0
-      margin-bottom: 30px
-
-    .wrapper-img
-      transition: 1s
-      height: 500px
-      +media-breakpoint-down(lg)
-        height: 350px
-
-    .wrapper-text
-      padding: 25px 30px
-      transition: 1s
-      +media-breakpoint-down(xs)
-        padding: 15px 18px
-
-    .date
-      display: block
-      margin-bottom: 10px
-      +media-breakpoint-down(xs)
-        margin: 0
-
-    h3
-      font-size: 22px
-      line-height: 30px
-      text-overflow: ellipsis
-      overflow: hidden
-      display: -webkit-box
-      -webkit-line-clamp: 3
-      -webkit-box-orient: vertical
-      +media-breakpoint-down(xs)
-        font-size: 16px
-        line-height: 24px
-        margin: 0
-
-    &:first-child
-      margin-left: 0
-
-    &:last-child
-      margin-right: 0
-
-    &:hover
-      flex: 1 1 30%
-
-      .wrapper-text
-        height: 0
-        padding: 0
-        +media-breakpoint-down(xs)
-          padding: 15px 18px
-
-      .wrapper-img
-        height: 100%
-
-      img
-        height: 100%
-
-      +media-breakpoint-down(md)
-        flex: 1
-        .wrapper-text
-          height: auto
-          padding: 25px 30px
-        .wrapper-img
-          height: 350px
-
-    img
-      object-fit: cover
-      height: 100%
-      width: 100%
+	display: flex
+	margin-bottom: 50px
+	+media-breakpoint-down(md)
+		flex-direction: column
+	+media-breakpoint-down(xs)
+		margin: 0 8%
+	li
+		height: 684px
+		flex: 1
+		box-shadow: 0px 17px 21px 0px rgba(44, 44, 44, 0.07)
+		overflow: hidden
+		margin: 0 2%
+		transition: 1s
+		+media-breakpoint-down(lg)
+			height: 534px
+		+media-breakpoint-down(md)
+			margin: 0
+			margin-bottom: 30px
+		.wrapper-img
+			transition: 1s
+			height: 500px
+			+media-breakpoint-down(lg)
+				height: 350px
+		.wrapper-text
+			padding: 25px 30px
+			transition: 1s
+			+media-breakpoint-down(xs)
+				padding: 15px 18px
+		.date
+			display: block
+			margin-bottom: 10px
+			+media-breakpoint-down(xs)
+				margin: 0
+		h3
+			font-size: 22px
+			line-height: 30px
+			text-overflow: ellipsis
+			overflow: hidden
+			display: -webkit-box
+			-webkit-line-clamp: 3
+			-webkit-box-orient: vertical
+			+media-breakpoint-down(xs)
+				font-size: 16px
+				line-height: 24px
+				margin: 0
+		&:first-child
+			margin-left: 0
+		&:last-child
+			margin-right: 0
+		&:hover
+			flex: 1 1 30%
+			.wrapper-text
+				height: 0
+				padding: 0
+				+media-breakpoint-down(xs)
+					padding: 15px 18px
+			.wrapper-img
+				height: 100%
+			img
+				height: 100%
+			+media-breakpoint-down(md)
+				flex: 1
+				.wrapper-text
+					height: auto
+					padding: 25px 30px
+				.wrapper-img
+					height: 350px
+		img
+			object-fit: cover
+			height: 100%
+			width: 100%
 
 .banner-list
   display: grid
@@ -861,36 +864,30 @@ header
       grid-column: 1/3
 
 .social-list
-  display: flex
-
-  li
-    margin-right: 15px
-
-    &:last-child
-      margin-right: 0
-
-  .button
-    min-width: 55px
-    min-height: 55px
-    width: 55px
-    padding: 0
-    +media-breakpoint-down(xs)
-      min-width: 40px
-      min-height: 40px
-      width: 40px
-      height: 40px
-
-    &:before
-      background: $second
-
-    &:after
-      border-color: $second
-
-    img
-      position: relative
-      z-index: 1
-      height: 50%
-      width: 50%
+	display: flex
+	li
+		margin-right: 15px
+		&:last-child
+			margin-right: 0
+	.button
+		min-width: 55px
+		min-height: 55px
+		width: 55px
+		padding: 0
+		+media-breakpoint-down(xs)
+			min-width: 45px
+			min-height: 45px
+			width: 45px
+			height: 45px
+		&:before
+			background: $second
+		&:after
+			border-color: $second
+		img
+			position: relative
+			z-index: 1
+			height: 37%
+			width: 37%
 
 .list-agencies
   padding: 0 20px 20px 20px
@@ -1145,7 +1142,8 @@ aside
     margin: 0
 
 .text-center
-  text-align: center
+	text-align: center
+	width: 100%
 
 .column-map
   display: flex
@@ -1226,22 +1224,19 @@ aside
       font-size: 100px
 
 #map
-  height: calc(100vh - 400px)
-  min-height: 420px
-  position: relative
-  overflow: visible
-  transition: .5s
-  +media-breakpoint-down(md)
-    transform-origin: bottom
-  +media-breakpoint-down(xs)
-    min-height: auto
-    max-width: 100%
-
-  &.small
-    transform: scale(0.85)
-
-  path:hover, path.active
-    fill: #4697dd
+	height: calc(100vh - 400px)
+	min-height: 420px
+	position: relative
+	overflow: visible
+	transition: .5s 
+	+media-breakpoint-down(md)
+		transform-origin: bottom
+	+media-breakpoint-down(xs)
+		max-width: 100%
+	&.small
+		transform: scale(0.85)
+	path:hover, path.active
+		fill: #4697dd
 
 .map-tooltip
   position: absolute
@@ -1272,6 +1267,138 @@ aside
     border-top: 10px solid #74d14c
     pointer-events: none
 
+.agence-head
+	display: flex
+	justify-content: center
+	margin: 40px 0
+	width: 100%
+	.wrapper-img
+		width: 360px
+		padding: 30px
+		border: 1px solid #e1e9ee
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+.contacts-agence
+	display: flex
+	flex-direction: column
+	justify-content: center
+	padding: 20px 0
+	margin-left: 30px
+	li
+		display: flex
+		margin-bottom: 15px
+	.button
+		margin: 10px auto 0 0
+	a
+		position: relative
+		font-weight: 500
+		color: $h2
+		&:hover span
+			padding-bottom: 5px
+		span
+			transition: .5s
+			background-image: linear-gradient(transparent calc(100% - 5px), $second 0px)
+.p-50
+	padding: 50px 0
+.full-w
+	background: #f7f9fb
+.agence-description
+	margin: 0 10%
+	font-weight: 300
+	p
+		margin-bottom: 0
+.phone:before, .mail:before, .site:before
+	content: ''
+	min-width: 22px
+	min-height: 22px
+	display: block
+	margin-right: 15px
+.phone:before
+	background: url(../img/svg/phone.svg) no-repeat
+.mail:before
+	background: url(../img/svg/emails.svg) no-repeat
+.site:before
+	background: url(../img/svg/globe.svg) no-repeat
+
+.contact-form
+	position: absolute
+	width: 45%
+	top: 50%
+	right: 0
+	transform: translateY(-50%)
+	box-shadow: 0px 8px 21px 0px rgba(44, 44, 44, 0.1)
+	background: #fff
+	.wrapper-body
+		padding: 20px 50px
+		.wrapper-op1, .wrapper-op2
+			display: none
+		.input-field
+			position: relative
+			margin: 30px 0
+		textarea
+			resize: none
+			height: 100px
+		input, textarea
+			border: none
+			border-bottom: 1px solid #d2dbe1
+			background-color: transparent
+			transition: 0.3s
+			width: 100%
+			color: $h2
+			&:focus
+				border-color: $second
+				box-shadow: 0 4px 0 0 $second
+			&:valid + label
+				transform: translateY(-75%)
+		label
+			position: absolute
+			top: 0
+			left: 0
+			line-height: 1.8
+			margin: 0
+			transition: 0.3s
+			font-weight: 600
+			font-size: 16px
+			// cursor: text
+	> input
+		display: none
+		&#op1:checked
+			~.wrapper-head label[for=op1]
+				background: $second
+				color: #fff
+			~.wrapper-body .wrapper-op1
+				display: block
+		&#op2:checked
+			~.wrapper-head label[for=op2]
+				background: $second
+				color: #fff
+			~.wrapper-body .wrapper-op2
+				display: block
+	.wrapper-head
+		display: flex
+		label
+			font-weight: 600
+			color: $h2
+			flex: 1
+			background: #f7f9fb
+			padding: 20px 10px
+			text-align: center
+
+.chart, .wrapper-chart
+	width: 100%
+	position: relative
+.wrapper-chart
+	position: relative
+	margin: auto
+	height: 300px
+	width: 80vw
+	background: #fff
+.mb-50
+	margin-bottom: 50px
+.svg-map
+	width: 100%
 #scene
   height: calc(100vh - 100px)
   min-height: 665px
@@ -1301,97 +1428,86 @@ aside
       max-width: none
 
 footer
-  background: #063861
-  color: $footerText
-
-  .two-menus
-    display: grid
-    grid-template-columns: 1fr 1fr
-    grid-gap: 50px
-    +media-breakpoint-down(sm)
-      display: flex
-      flex-direction: column
-      text-align: center
-
-    a
-      transition: .25s
-
-      &:hover
-        color: #fff
-
-  h3
-    color: #fff
-    font-size: 22px
-    +media-breakpoint-down(sm)
-      text-align: center
-
-  .menu-wrap
-    +media-breakpoint-down(sm)
-      width: 100%
-
-  .logo-wrap
-    margin: 0
-    +media-breakpoint-down(md)
-      width: 100%
-      a
-        width: 307px
-        display: block
-        margin: auto
-        margin-bottom: 20px
-    +media-breakpoint-down(xs)
-      a
-        width: 237px
-
-  .social-wrap
-    +media-breakpoint-down(sm)
-      margin-top: 20px
-      width: 100%
-      .social-list
-        justify-content: center
-
-  .top-row
-    padding: 50px 0
-    position: relative
-    z-index: 1
-
-    .row
-      justify-content: space-between
-
-    &.visible
-      &:before
-        content: ''
-        position: absolute
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
-        opacity: .05
-        z-index: -1
-        background: url(../img/@2x/OCERHB0.webp) no-repeat 50% 100%/100%
-        +media-breakpoint-down(sm)
-          background-size: 200%
-        +media-breakpoint-down(xs)
-          background-size: 300%
-
-  .bottom-row
-    text-align: center
-    padding: 20px 0
-
-    a
-      transition: .25s
-
-      &:hover
-        color: #fff
-
-    span:first-child
-      &:after
-        content: ''
-        display: inline-block
-        width: 2px
-        height: 12px
-        margin-left: 10px
-        margin-right: 5px
-        background: $second
+	background: #063861
+	color: $footerText
+	.two-menus
+		display: grid
+		grid-template-columns: 1fr 1fr
+		grid-gap: 50px
+		+media-breakpoint-down(sm)
+			display: flex
+			flex-direction: column
+			text-align: center
+		a
+			transition: .25s
+			&:hover
+				color: #fff
+	h3
+		color: #fff
+		font-size: 22px
+		+media-breakpoint-down(sm)
+			text-align: center
+	.menu-wrap
+		+media-breakpoint-down(sm)
+			width: 100%
+	.logo-wrap
+		margin: 0
+		+media-breakpoint-down(md)
+			width: 100%
+			a
+				width: 307px
+				display: block
+				margin: auto
+				margin-bottom: 20px
+		+media-breakpoint-down(xs)
+			a
+				width: 237px
+	.social-wrap
+		+media-breakpoint-down(sm)
+			margin-top: 20px
+			width: 100%
+			.social-list
+				justify-content: center
+	.top-row
+		padding: 50px 0
+		position: relative
+		z-index: 1
+		+media-breakpoint-down(sm)
+			padding-bottom: 20px
+		.row
+			justify-content: space-between
+		&:before
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			opacity: .05
+			z-index: -1
+			background: url(../img/@2x/OCERHB0.webp) no-repeat 50% 100%/100%
+			+media-breakpoint-down(sm)
+				background-size: 200%
+				background-position-y: calc(100% - 128px)
+			+media-breakpoint-down(xs)
+				background-size: 300%
+				background-position-y: calc(100% - 120px)
+	.bottom-row
+		text-align: center
+		padding: 20px 0
+		a
+			transition: .25s
+			&:hover
+				color: #fff
+		span:first-child
+			&:after
+				content: ''
+				display: inline-block
+				width: 2px
+				height: 12px
+				margin-left: 10px
+				margin-right: 5px
+				background: $second
 
 // Custom Sass / Remove before use
 .parent
@@ -1768,6 +1884,3 @@ footer
           display: flex
       .list-comparer-prix
         display: none
-
-
-
