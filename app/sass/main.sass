@@ -326,14 +326,14 @@ header
 		.banner-wrap
 			order: -2
 			+ .col
-				+ .col	
+				+ .col
 					order: -1
 					min-width: 100%
 					height: 300px
 	+media-breakpoint-down(xs)
 		.banner-wrap
 			+ .col
-				+ .col	
+				+ .col
 					max-height: 210px
 	.introduction
 		margin-top: 50px
@@ -588,7 +588,7 @@ header
 	width: 100vw
 	margin: 0 calc(-50vw + 50%)
 	background: rebeccapurple
-		
+
 .employment-list
 	li
 		display: flex
@@ -1228,7 +1228,7 @@ aside
 	min-height: 420px
 	position: relative
 	overflow: visible
-	transition: .5s 
+	transition: .5s
 	+media-breakpoint-down(md)
 		transform-origin: bottom
 	+media-breakpoint-down(xs)
@@ -1667,7 +1667,6 @@ footer
 
 .list-comparer-items
 	border-bottom: 2px solid #e1e9ee
-
 .comparerdown
 	margin: 30px 0 90px 0
 	width: 100%
@@ -1717,11 +1716,11 @@ footer
 			.list-comparer-ca
 				display: none
 		@media screen and (max-device-width: 770px)
-			grid-template-columns: 44% 40% 10%
+			grid-template-columns: 50% 30% 1%
 			label
 				font-size: 14px
 				font-weight: 500
-				line-height: 18px
+				line-height: 16px
 			.list-comparer-prix
 				display: none
 			.buton-plus
@@ -1729,12 +1728,6 @@ footer
 		@media screen and (max-device-width: 575px)
 			label
 				white-space: normal
-	hr
-		margin: 0 0 0 0
-		border: none
-		width: 100%
-		height: 2px
-		background-color: #e1e9ee
 	.chekkss
 		margin: auto 0 auto 15px
 		display: flex
@@ -1742,8 +1735,8 @@ footer
 		.checkes
 			position: relative
 			display: block
-			min-width: 25px
-			height: 25px
+			min-width: 20px
+			height: 20px
 			margin-right: 20px
 			border: 1px solid #d2dbe1
 			background: url(../img/svg/checkcomp.svg) no-repeat center/80%
@@ -1756,8 +1749,6 @@ footer
 				transition: all linear .5s
 		input[type="checkbox"]
 			display: none
-		@media screen and (max-device-width: 570px)
-			.checkes
 	.list-comparer
 		display: grid
 		grid-template-columns: 20% 15% 20% 15% 15% 15%
@@ -1806,24 +1797,26 @@ footer
 			.list-comparer-ca
 				display: none
 		@media screen and (max-device-width: 770px)
-			justify-items: stretch
-			grid-template-columns: 42% 40%
+			grid-template-columns: 50% 30%
 			li
 				flex-direction: column
-				justify-content: center
 				align-items: center
-				font-size: 16px
+				font-size: 14px
 				font-weight: 500
 				line-height: 30px
-				.butonup-list
-					height: 10px
-				.butondown-list
-					height: 10px
-				.buttmin
-					position: absolute
-					margin-top: 30px
-					display: flex
-					justify-content: space-between
-					display: flex
+				height: 30px
+				margin-bottom: 22px
+			.butonup-list
+				height: 10px
+			.butondown-list
+				height: 30px
+				margin-bottom: 25px
+			.buttmin
+				position: absolute
+				margin-top: 5px
+				display: flex
+				margin-right: 7px
+				justify-content: space-between
+				display: flex
 			.list-comparer-prix
 				display: none
